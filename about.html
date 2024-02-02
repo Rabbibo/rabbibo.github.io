@@ -1,9 +1,13 @@
+Certainly! You can specify different fonts for different elements. Here's the modified code with "Rab's Labs" and "Gutentag!" using the original Sixtyfour font, and the "About" passage using Arial:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rab's Labs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
     <style>
         body {
             text-align: center;
@@ -14,6 +18,7 @@
             background-color: #333;
             color: #fff;
             padding: 10px;
+            font-family: 'Sixtyfour', cursive;
         }
 
         nav {
@@ -28,7 +33,12 @@
             text-decoration: none;
         }
 
-        #welcome-screen,
+        #welcome-screen {
+            margin-top: 50px;
+            font-size: 1.5em;
+            font-family: 'Sixtyfour', cursive;
+        }
+
         #about-screen {
             margin-top: 50px;
             font-size: 1.5em;
@@ -52,7 +62,7 @@
     </nav>
 
     <div id="welcome-screen">
-        <p>About!</p>
+        <p>About !</p>
     </div>
 
     <div id="about-screen">
@@ -61,3 +71,6 @@
 
 </body>
 </html>
+```
+
+Now, "Rab's Labs" and "Gutentag!" use the Sixtyfour font, while the "About" passage uses Arial. Adjustments can be made based on your preferences.
