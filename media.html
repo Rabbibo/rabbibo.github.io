@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rab's Labs - Media</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            font-family: 'Sixtyfour', cursive;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #555;
+            padding: 5px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #stream-embed,
+        #video-embed {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><a href="index.html" style="color: inherit; text-decoration: none;">Rab's Labs</a></h1>
+    </header>
+
+    <nav>
+        <a href="#">Plex</a>
+        <a href="#">Email</a>
+        <a href="#">About</a>
+        <a href="media.html">Media</a> <!-- Added Media Button -->
+    </nav>
+
+    <div id="stream-embed">
+        <!-- Embed Twitch Live Stream -->
+        <iframe src="https://player.twitch.tv/?channel=your_twitch_channel_name" width="800" height="450" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+    </div>
+
+    <div id="video-embed">
+        <!-- Embed YouTube Video -->
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/your_youtube_video_id" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+</body>
+</html>
