@@ -5,14 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Gutentag! Welcome to Rab's Labs">
     <title>Rab's Labs</title>
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jpeg"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
     <style>
         body {
-            /* Styles remain unchanged for brevity */
+            text-align: left;
+            font-family: 'Sixtyfour', cursive;
+            background-color: #0732ac;
+            color: #5688d4;
+            margin: 0;
+            padding: 0;
         }
-        
-        /* Styles remain unchanged for brevity */
+
+        header {
+            background-color: #0732ac;
+            color: #5688d4;
+            padding: 10px;
+        }
+
+        nav {
+            display: none;
+            justify-content: flex-end;
+            text-align: left;
+            background-color: #0732ac;
+            padding: 5px;
+            border: 1px solid #5688d4;
+        }
+
+        nav a {
+            color: #5688d4;
+            text-decoration: none;
+            padding: 5px;
+            margin: 0 5px;
+        }
+
+        #welcome-screen {
+            margin-top: 50px;
+            font-size: 2em;
+            color: #5688d4;
+            text-shadow: 0 0 10px rgba(86, 136, 212, 0.8);
+        }
+
+        #typing-indicator {
+            display: inline-block;
+            animation: blink 1s infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -47,9 +94,8 @@
                 if (headerIndex < textToTypeHeader.length) {
                     typedHeaderElement.textContent += textToTypeHeader.charAt(headerIndex);
                     headerIndex++;
-                    setTimeout(typeHeader, 100); // Adjust typing speed for header (in milliseconds)
+                    setTimeout(typeHeader, 100);
                 } else {
-                    // Header typed, now show the menu
                     menuElement.style.display = 'flex';
                     typeText();
                 }
@@ -59,19 +105,19 @@
                 if (textIndex < textToTypeText.length) {
                     typedTextElement.textContent += textToTypeText.charAt(textIndex);
                     textIndex++;
-                    setTimeout(typeText, 100); // Adjust typing speed for text (in milliseconds)
+                    setTimeout(typeText, 100);
                 } else {
-                    // "Gutentag!" typed, now show the response
                     if (!aboutMeDisplayed) {
                         setTimeout(function() {
-                            typedTextElement.innerHTML = `
+                            // Append the new text to the existing content
+                            typedTextElement.innerHTML += `
                                 Welcome to Rab's Labs – the virtual playground where technology, creativity, and sheer curiosity converge! I'm Raberto, your curator of all things tech, photo/video, and gaming, and this is the space where my experiments and fun stuff come to life.<br><br>
                                 Step inside Rab's Labs for an immersive experience into the world of innovation and digital exploration. As we delve into the latest in technology, unravel the secrets of captivating photography and videography, and embark on thrilling gaming adventures, you'll witness the dynamic intersection of my passions.<br><br>
                                 This isn't just a website; it's a dynamic laboratory where ideas take shape, and discoveries unfold. Expect to find tutorials, reviews, and a sprinkle of the unexpected as we navigate through the realms of technology and entertainment together.<br><br>
                                 So, fasten your seatbelt and get ready to explore Rab's Labs – where every click is a step into the exciting fusion of experimentation and fun in the digital universe!
                             `;
                             aboutMeDisplayed = true;
-                        }, 500); // Adjust delay before showing the response (in milliseconds)
+                        }, 500);
                     }
                 }
             }
