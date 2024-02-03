@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rab's Labs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
+    <style>
+        body {
+            text-align: left;
+            font-family: 'Sixtyfour', cursive;
+            background-color: #041e41; /* Slightly darker background color */
+            color: #5688d4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #041e41;
+            color: #5688d4;
+            padding: 10px;
+        }
+
+        nav {
+            display: none;
+            justify-content: flex-end;
+            text-align: left;
+            background-color: #041e41;
+            padding: 5px;
+            border: 1px solid #5688d4;
+            box-shadow: 0 0 10px rgba(86, 136, 212, 0.8); /* Add glow to the menu */
+        }
+
+        nav a {
+            color: #5688d4;
+            text-decoration: none;
+            padding: 5px;
+            margin: 0 5px;
+            text-shadow: 0 0 10px rgba(86, 136, 212, 0.8); /* Add glow to the menu items */
+        }
+
+        #welcome-screen,
+        #about-screen {
+            margin-top: 50px;
+            font-size: 1.5em;
+            opacity: 0; /* Initial opacity set to 0 */
+            transition: opacity 0.5s ease-in-out; /* Add fade-in/fade-out transition */
+        }
+
+        #about-screen p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="typed-header"><a href="index" style="color: inherit; text-decoration: none;">Rab's Labs</a></h1>
+    </header>
+
+    <nav id="menu">
+        <a href="index">Home</a>
+        <a href="about" onclick="showAbout()">About</a>
+        <a href="#">Jellyfin</a>
+        <a href="https://www.twitch.tv/ferrisavarts">Streams</a>
+    </nav>
+
+    <div id="welcome-screen">
+        <p id="typed-text">Welcome to Rab's Labs!</p>
+    </div>
+
+    <div id="about-screen">
+        <p id="about-text"></p><span id="typing-indicator">|</span>
+    </div>
+
+    <script>
+        function showAbout() {
+            document.getElementById("welcome-screen").style.display = "none";
+            document.getElementById("about-screen").style.display = "block";
+            // Triggering reflow for the transition to take effect
+            document.getElementById("about-screen").offsetHeight;
+            document.getElementById("about-screen").style.opacity = "1";
+            typeAboutText();
+        }
+
+        function typeAboutText() {
+            const aboutTextElement = document.getElementById('about-text');
+            const textToType = "Hello, I am Raberto, a high school student working on getting a few servers up and running and exploring other technical stuff. But that's not all I do! Sometimes I play games, do photography, construction, 3D printing/modeling, and much more!";
+            let index = 0;
+
+            function type() {
+                if (index < textToType.length) {
+                    aboutTextElement.textContent += textToType.charAt(index);
+                    index++;
+                    setTimeout(type, 50);
+                } else {
+                    // Remove typing indicator after typing is complete
+                    document.getElementById("typing-indicator").style.display = "none";
+                }
+            }
+
+            // Start typing after a brief delay
+            setTimeout(type, 500);
+        }
+    </script>
+
+</body>
+</html>
