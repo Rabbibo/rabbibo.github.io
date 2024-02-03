@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Gutentag! Welcome to Rab's Labs">
     <title>Rab's Labs</title>
-    <link rel="shortcut icon" type="image/jpeg" href="media/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="media/favicon.png"/> <!-- Updated favicon link -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
     <style>
         body {
@@ -109,7 +109,8 @@
                 } else {
                     if (!aboutMeDisplayed) {
                         setTimeout(function() {
-                            // Append the new text to the existing content
+                            // Append the new text to the existing content with a line break
+                            typedTextElement.innerHTML += '<br>';
                             typedTextElement.innerHTML += `
                                 Welcome to Rab's Labs – the virtual playground where technology, creativity, and sheer curiosity converge! I'm Raberto, your curator of all things tech, photo/video, and gaming, and this is the space where my experiments and fun stuff come to life.<br><br>
                                 Step inside Rab's Labs for an immersive experience into the world of innovation and digital exploration. As we delve into the latest in technology, unravel the secrets of captivating photography and videography, and embark on thrilling gaming adventures, you'll witness the dynamic intersection of my passions.<br><br>
