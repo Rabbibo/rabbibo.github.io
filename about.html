@@ -71,16 +71,37 @@
     </div>
 
     <div id="about-screen">
-        <p>Hello, I am Raberto, a high school student working on getting a few servers up and running and exploring other technical stuff. But that's not all I do! Sometimes I play games, do photography, construction, 3D printing/modeling, and much more!</p>
+        <p id="about-text"></p><span id="typing-indicator">|</span>
     </div>
 
     <script>
         function showAbout() {
-            document.getElementById("about-screen").style.display = "block";
             document.getElementById("welcome-screen").style.display = "none";
+            document.getElementById("about-screen").style.display = "block";
             // Triggering reflow for the transition to take effect
             document.getElementById("about-screen").offsetHeight;
             document.getElementById("about-screen").style.opacity = "1";
+            typeAboutText();
+        }
+
+        function typeAboutText() {
+            const aboutTextElement = document.getElementById('about-text');
+            const textToType = "Hello, I am Raberto, a high school student working on getting a few servers up and running and exploring other technical stuff. But that's not all I do! Sometimes I play games, do photography, construction, 3D printing/modeling, and much more!";
+            let index = 0;
+
+            function type() {
+                if (index < textToType.length) {
+                    aboutTextElement.textContent += textToType.charAt(index);
+                    index++;
+                    setTimeout(type, 50);
+                } else {
+                    // Remove typing indicator after typing is complete
+                    document.getElementById("typing-indicator").style.display = "none";
+                }
+            }
+
+            // Start typing after a brief delay
+            setTimeout(type, 500);
         }
     </script>
 
