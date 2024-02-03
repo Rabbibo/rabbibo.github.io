@@ -24,7 +24,7 @@
         }
 
         nav {
-            display: flex;
+            display: none; /* Initially hide the menu */
             justify-content: flex-end; /* Move everything to the right */
             text-align: left; /* Align text inside the menu to the left */
             background-color: #0732ac; /* Set menu background color to #0732ac */
@@ -45,15 +45,31 @@
             color: #5688d4; /* Set font color to #5688d4 */
             text-shadow: 0 0 10px rgba(86, 136, 212, 0.8); /* Add glow effect */
         }
+
+        /* Typing indicator styles */
+        #typing-indicator {
+            display: inline-block;
+            animation: blink 1s infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Rab's Labs</h1>
+        <h1 id="typed-header"></h1>
     </header>
 
-    <nav>
+    <nav id="menu">
         <a href="#">Plex</a>
         <a href="media">Streams and Video</a>
         <a href="https://mail.zoho.com/zm/#mail/folder/inbox">Email</a>
@@ -61,23 +77,39 @@
     </nav>
 
     <div id="welcome-screen">
-        <p id="typed-text"></p>
+        <p id="typed-text"></p><span id="typing-indicator">|</span>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const typedHeaderElement = document.getElementById('typed-header');
             const typedTextElement = document.getElementById('typed-text');
-            const textToType = 'Gutentag!';
-            let index = 0;
+            const menuElement = document.getElementById('menu');
+            const textToTypeHeader = "Rab's Labs";
+            const textToTypeText = 'Gutentag!';
+            let headerIndex = 0;
+            let textIndex = 0;
 
-            function typeText() {
-                if (index < textToType.length) {
-                    typedTextElement.textContent += textToType.charAt(index);
-                    index++;
-                    setTimeout(typeText, 100); // Adjust typing speed (in milliseconds)
+            function typeHeader() {
+                if (headerIndex < textToTypeHeader.length) {
+                    typedHeaderElement.textContent += textToTypeHeader.charAt(headerIndex);
+                    headerIndex++;
+                    setTimeout(typeHeader, 100); // Adjust typing speed for header (in milliseconds)
+                } else {
+                    // Header typed, now show the menu
+                    menuElement.style.display = 'flex';
                 }
             }
 
+            function typeText() {
+                if (textIndex < textToTypeText.length) {
+                    typedTextElement.textContent += textToTypeText.charAt(textIndex);
+                    textIndex++;
+                    setTimeout(typeText, 100); // Adjust typing speed for text (in milliseconds)
+                }
+            }
+
+            typeHeader();
             typeText();
         });
     </script>
