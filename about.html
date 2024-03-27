@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Rab's Labs</title>
+    <link rel="icon" type="image/png" href="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/favicon.png?raw=true">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-image: url("https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/site%20bg.jpg?raw=true");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            opacity: 0; /* Initially hide the content */
+            animation: fadeIn 2s ease forwards; /* Apply fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .logo {
+            width: 440px; /* Adjust size as needed */
+            height: auto;
+            opacity: 0; /* Initially hide the logo */
+            animation: fadeInLogo 2s ease forwards; /* Apply fade-in animation */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        @keyframes fadeInLogo {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .about-text {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://www.rabslabs.xyz">
+            <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabs%20Logo%202024.png?raw=true" alt="Logo" class="logo">
+        </a>
+        <div class="about-text">
+            Technology goes hard fr
+        </div>
+    </div>
+</body>
+</html>
