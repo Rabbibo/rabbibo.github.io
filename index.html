@@ -3,131 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gutentag! Welcome to Rab's Labs">
-    <title>Rab's Labs</title>
-    <link rel="shortcut icon" type="image/png" href="media/favicon.png"/> <!-- Updated favicon link -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
+    <title>Rab's Labs Home</title>
+    <link rel="icon" type="image/png" href="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/favicon.png?raw=true">
     <style>
         body {
-            text-align: left;
-            font-family: 'Sixtyfour', cursive;
-            background-color: #000000; /* Slightly darker background color */
-            color: #3cd200;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-image: url("https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/site%20bg.jpg?raw=true");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            opacity: 0; /* Initially hide the content */
+            animation: fadeIn 2s ease forwards; /* Apply fade-in animation */
         }
 
-        header {
-            background-color: #000000;
-            color: #3cd200;
-            padding: 10px;
-        }
-
-        nav {
-            display: none;
-            justify-content: flex-end;
-            text-align: left;
-            background-color: #000000;
-            padding: 5px;
-            border: 1px solid #3bd200;
-            box-shadow: 0 0 10px #3cd200cc; /* Add glow to the menu */
-        }
-
-        nav a {
-            color: #3bd200;
-            text-decoration: none;
-            padding: 5px;
-            margin: 0 5px;
-            text-shadow: 0 0 10px #3cd200cc; /* Add glow to the menu items */
-        }
-
-        #welcome-screen {
-            margin-top: 50px;
-            font-size: 2em;
-            color: #3cd200;
-            text-shadow: 0 0 10px #3cd200cc, 0 0 20px #3cd200cc; /* Add glow to "Rab's Labs" */
-        }
-
-        #typing-indicator {
-            display: inline-block;
-            animation: blink 1s infinite;
-            margin-left: 5px;
-        }
-
-        @keyframes blink {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
+        @keyframes fadeIn {
+            from {
                 opacity: 0;
             }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .logo {
+            width: 440px; /* Adjust size as needed */
+            height: auto;
+            opacity: 0; /* Initially hide the logo */
+            animation: fadeInLogo 2s ease forwards; /* Apply fade-in animation */
+        }
+
+        @keyframes fadeInLogo {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .options {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column; /* Changed from row to column */
+            opacity: 0; /* Initially hide the options */
+            animation: fadeInOptions 2s ease forwards; /* Apply fade-in animation */
+        }
+
+        @keyframes fadeInOptions {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .options a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0; /* Adjust spacing between links */
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1 id="typed-header"></h1>
-    </header>
-
-    <nav id="menu">
-        <a href="rablslabs.xyz">Home</a>
-        <a href="contact">Contact</a>
-        <a href="https://jellyfin.rabslabs.xyz">Jellyfin</a>
-        <a href="https://www.twitch.tv/ferrisavarts">Streams</a>
-    </nav>
-
-    <div id="welcome-screen">
-        <p id="typed-text"></p><span id="typing-indicator">|</span>
+    <div class="container">
+        <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabs%20Logo%202024.png?raw=true" alt="Logo" class="logo">
+        <div class="options">
+            <a href="about.html">About</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="streams.html">Streams</a>
+            <a href="contact.html">Contact</a>
+            <a href="united-pogonia.html">United Pogonia</a>
+        </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const typedHeaderElement = document.getElementById('typed-header');
-            const typedTextElement = document.getElementById('typed-text');
-            const menuElement = document.getElementById('menu');
-            const textToTypeHeader = "Rab's Labs";
-            const textToTypeText = 'Gutentag!';
-            let headerIndex = 0;
-            let textIndex = 0;
-            let aboutMeDisplayed = false;
-
-            function typeHeader() {
-                if (headerIndex < textToTypeHeader.length) {
-                    typedHeaderElement.textContent += textToTypeHeader.charAt(headerIndex);
-                    headerIndex++;
-                    setTimeout(typeHeader, 100);
-                } else {
-                    menuElement.style.display = 'flex';
-                    typeText();
-                }
-            }
-
-            function typeText() {
-                if (textIndex < textToTypeText.length) {
-                    typedTextElement.textContent += textToTypeText.charAt(textIndex);
-                    textIndex++;
-                    setTimeout(typeText, 100);
-                } else {
-                    if (!aboutMeDisplayed) {
-                        setTimeout(function() {
-                            // Append the new text to the existing content with a line break
-                            typedTextElement.innerHTML += '<br>';
-                            typedTextElement.innerHTML += `
-                                Welcome to Rab's Labs – the virtual playground where technology, creativity, and sheer curiosity converge! I'm Raberto, your curator of all things tech, photo/video, and gaming, and this is the space where my experiments and fun stuff come to life.<br><br>
-                                Step inside Rab's Labs for an immersive experience into the world of innovation and digital exploration. As we delve into the latest in technology, unravel the secrets of captivating photography and videography, and embark on thrilling gaming adventures, you'll witness the dynamic intersection of my passions.<br><br>
-                                This isn't just a website; it's a dynamic laboratory where ideas take shape, and discoveries unfold. Expect to find tutorials, reviews, and a sprinkle of the unexpected as we navigate through the realms of technology and entertainment together.<br><br>
-                                So, fasten your seatbelt and get ready to explore Rab's Labs – where every click is a step into the exciting fusion of experimentation and fun in the digital universe!
-                            `;
-                            aboutMeDisplayed = true;
-                        }, 500);
-                    }
-                }
-            }
-
-            typeHeader();
-        });
-    </script>
-
 </body>
 </html>
