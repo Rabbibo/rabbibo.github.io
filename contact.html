@@ -3,131 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gutentag! Welcome to Rab's Labs">
-    <title>Rab's Labs</title>
-    <link rel="shortcut icon" type="image/png" href="media/favicon.png"/> <!-- Updated favicon link -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap">
+    <title>Contact - Rab's Labs</title>
+    <link rel="icon" type="image/png" href="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/favicon.png?raw=true">
     <style>
         body {
-            text-align: left;
-            font-family: 'Sixtyfour', cursive;
-            background-color: #041e41; /* Slightly darker background color */
-            color: #5688d4;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Anchor content to the top of the screen */
+            min-height: 100vh; /* Ensure content fills the viewport height */
+            background-image: url("https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/site%20bg.jpg?raw=true");
+            background-size: cover;
+            background-position: center;
         }
-
-        header {
-            background-color: #041e41;
-            color: #5688d4;
-            padding: 10px;
+        .logo {
+            width: 200px;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+            margin-bottom: 20px;
         }
-
-        nav {
-            display: none;
-            justify-content: flex-end;
-            text-align: left;
-            background-color: #041e41;
-            padding: 5px;
-            border: 1px solid #5688d4;
-            box-shadow: 0 0 10px rgba(86, 136, 212, 0.8); /* Add glow to the menu */
-        }
-
-        nav a {
-            color: #5688d4;
-            text-decoration: none;
-            padding: 5px;
-            margin: 0 5px;
-            text-shadow: 0 0 10px rgba(86, 136, 212, 0.8); /* Add glow to the menu items */
-        }
-
-        #welcome-screen {
-            margin-top: 50px;
-            font-size: 2em;
-            color: #5688d4;
-            text-shadow: 0 0 10px rgba(86, 136, 212, 0.8), 0 0 20px rgba(86, 136, 212, 0.5); /* Add glow to "Rab's Labs" */
-        }
-
-        #typing-indicator {
-            display: inline-block;
-            animation: blink 1s infinite;
-            margin-left: 5px;
-        }
-
-        @keyframes blink {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
+        @keyframes fadeIn {
+            from {
                 opacity: 0;
             }
+            to {
+                opacity: 1;
+            }
+        }
+        .contacts {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+        }
+        .contacts a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1 id="typed-header"></h1>
-    </header>
-
-    <nav id="menu">
-        <a href="index">Home</a>
-        <a href="contact">Contact</a>
-        <a href="#">Jellyfin</a>
-        <a href="https://www.twitch.tv/ferrisavarts">Streams</a>
-    </nav>
-
-    <div id="welcome-screen">
-        <p id="typed-text"></p><span id="typing-indicator">|</span>
+    <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabs%20Logo%202024.png?raw=true" alt="Rab's Labs Logo" class="logo">
+    <h1>Contact</h1>
+    <div class="contacts">
+        <a href="mailto:raberto@rabslabs.xyz">Raberto: raberto@rabslabs.xyz</a>
+        <a href="mailto:geraldthemonkey@rabslabs.xyz">Gerald: geraldthemonkey@rabslabs.xyz</a>
+        <a href="mailto:waffle@rabslabs.xyz">Waffle: waffle@rabslabs.xyz</a>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const typedHeaderElement = document.getElementById('typed-header');
-            const typedTextElement = document.getElementById('typed-text');
-            const menuElement = document.getElementById('menu');
-            const textToTypeHeader = "Rab's Labs";
-            const textToTypeText = 'Contact!';
-            let headerIndex = 0;
-            let textIndex = 0;
-            let aboutMeDisplayed = false;
-
-            function typeHeader() {
-                if (headerIndex < textToTypeHeader.length) {
-                    typedHeaderElement.textContent += textToTypeHeader.charAt(headerIndex);
-                    headerIndex++;
-                    setTimeout(typeHeader, 100);
-                } else {
-                    menuElement.style.display = 'flex';
-                    typeText();
-                }
-            }
-
-            function typeText() {
-                if (textIndex < textToTypeText.length) {
-                    typedTextElement.textContent += textToTypeText.charAt(textIndex);
-                    textIndex++;
-                    setTimeout(typeText, 100);
-                } else {
-                    if (!aboutMeDisplayed) {
-                        setTimeout(function() {
-                            // Append the new text to the existing content with a line break
-                            typedTextElement.innerHTML += '<br>';
-                            typedTextElement.innerHTML += `
-                                Raberto: raberto@rabslabs.xyz<br>
-                                Gerald: geraldthemonke@rabslabs.xyz<br>
-                                Altereel: altereel@rabslabs.xyz<br>
-                                Super Noob: supernoob08@rabslabs.xyz<br>
-                            `;
-                            aboutMeDisplayed = true;
-                        }, 500);
-                    }
-                }
-            }
-
-            typeHeader();
-        });
-    </script>
-
 </body>
 </html>
