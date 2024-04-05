@@ -9,12 +9,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Add this CSS class to control the size of the logo */
-.logo-img {
-    width: 30px; /* Adjust the size as needed */
-    height: auto; /* Maintain aspect ratio */
-}
-
 /* Header Styles */
 header {
     background-color: #333;
@@ -32,8 +26,16 @@ header {
 .hamburger-menu {
     width: 30px;
     height: 30px;
-    background-image: url('path/to/hamburger-icon.png'); /* Add your hamburger menu icon */
-    background-size: cover;
+}
+
+.hamburger-menu img {
+    width: 30px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.logo img {
+    width: 70px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .discord-invite a {
@@ -89,7 +91,8 @@ footer {
 }
 
 .footer-logo img {
-    width: 100px; /* Adjust as needed */
+    width: 100px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .footer-menu ul {
