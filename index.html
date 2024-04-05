@@ -3,100 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Rab's Labs! Where we make the impossible still impossible! Raberto Schlumbergera was founded to help make things easier to use. Our specialties are tech solutions, graphic design, and videos!">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S9W387FM5F"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-S9W387FM5F');
-    </script>
-    <title>Rab's Labs Home</title>
-    <link rel="icon" type="image/png" href="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/favicon.png?raw=true">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
-            background-image: url("https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/site%20bg.jpg?raw=true");
-            background-size: cover;
-            background-position: center;
-            color: white;
-            font-family: Arial, sans-serif;
-            opacity: 0; /* Initially hide the content */
-            animation: fadeIn 2s ease forwards; /* Apply fade-in animation */
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .logo {
-            width: 440px; /* Adjust size as needed */
-            height: auto;
-            opacity: 0; /* Initially hide the logo */
-            animation: fadeInLogo 2s ease forwards; /* Apply fade-in animation */
-        }
-
-        @keyframes fadeInLogo {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .options {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column; /* Changed from row to column */
-            opacity: 0; /* Initially hide the options */
-            animation: fadeInOptions 2s ease forwards; /* Apply fade-in animation */
-        }
-
-        @keyframes fadeInOptions {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .options a {
-            color: white;
-            text-decoration: none;
-            margin: 5px 0; /* Adjust spacing between links */
-        }
-    </style>
+    <title>Rab's Labs</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabs%20Logo%202024.png?raw=true" alt="Logo" class="logo">
-        <div class="options">
-            <a href="about">About</a>
-            <a href="solutions">Solutions</a>
-            <a href="https://www.twitch.tv/rabertofr">Streams</a>
-            <a href="contact">Contact</a>
-            <a href="https://bean.rabslabs.xyz/">Bean Studios</a>
-            <a href="https://up.rabslabs.xyz/">United Pogonia</a>
+
+<header>
+    <div class="title-bar">
+        <div class="hamburger-menu"></div>
+        <div class="discord-invite">
+            <a href="https://discord.gg/RagNWWjTa6" target="_blank">Discord</a>
         </div>
     </div>
+</header>
+
+<section class="main-section">
+    <div class="title-screen">
+        <h1>Hallo</h1>
+    </div>
+    <!-- Background image can be added here -->
+</section>
+
+<nav class="menu">
+    <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Bean Studios</a></li>
+        <li><a href="#">United Pogonia</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabs%20Logo%202024.png?raw=true" alt="Rab's Labs Logo">
+        </div>
+        <nav class="footer-menu">
+            <ul>
+                <li><a href="about">About</a></li>
+                <li><a href="solutions">Solutions</a></li>
+                <li><a href="https://bean.rabslabs.xyz">Bean Studios</a></li>
+                <li><a href="https://up.rabslabs.xyz">United Pogonia</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="copyright">
+        &copy; Raberto Schlumbergera and Rab's Labs LLC
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
