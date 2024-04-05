@@ -50,9 +50,7 @@ header {
 }
 
 .title-screen {
-    background-image: url('https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/bckg.jpg?raw=true');
-    background-size: cover;
-    background-position: center;
+    /* Background image styles can be added here if needed */
     padding: 20px;
     display: flex;
     justify-content: center; /* Horizontally center the content */
