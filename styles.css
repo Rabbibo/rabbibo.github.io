@@ -34,14 +34,14 @@ header {
 }
 
 .logo img {
-    width: 100px; /* Default size for mobile */
+    max-width: 100%; /* Make the logo responsive */
     height: auto; /* Maintain aspect ratio */
 }
 
 /* Adjust logo size for desktop */
 @media (min-width: 768px) {
     .logo img {
-        width: 150px; /* Adjust the size as needed */
+        max-width: 150px; /* Adjust the size as needed */
     }
 }
 
@@ -98,14 +98,14 @@ footer {
 }
 
 .footer-logo img {
-    width: 100px; /* Default size for mobile */
+    max-width: 100%; /* Make the logo responsive */
     height: auto; /* Maintain aspect ratio */
 }
 
 /* Adjust logo size for desktop */
 @media (min-width: 768px) {
     .footer-logo img {
-        width: 150px; /* Adjust the size as needed */
+        max-width: 150px; /* Adjust the size as needed */
     }
 }
 
