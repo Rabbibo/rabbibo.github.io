@@ -29,25 +29,18 @@ header {
 }
 
 .hamburger-menu img {
-    width: 30px; /* Adjust the size as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
+}
+
+.logo {
+    max-width: 200px; /* Set a specific width for the logo */
+    margin: 0 auto; /* Center the logo horizontally */
 }
 
 .logo img {
-    max-width: 100%; /* Make the logo responsive */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Limit max width of logo on desktop */
-@media (min-width: 768px) {
-    .logo img {
-        max-width: 78px; /* Adjust the size as needed */
-    }
-}
-
-.discord-invite a {
-    color: #fff;
-    text-decoration: none;
+    width: 100%;
+    height: auto;
 }
 
 /* Main Section Styles */
@@ -59,6 +52,14 @@ header {
 .title-screen {
     background-color: #f2f2f2;
     padding: 20px;
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 200px; /* Adjust the height as needed */
+}
+
+.title-screen h1 {
+    margin: 0; /* Remove default margin to center the text properly */
 }
 
 /* Menu Styles */
@@ -98,15 +99,8 @@ footer {
 }
 
 .footer-logo img {
-    max-width: 100%; /* Make the logo responsive */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Limit max width of logo on desktop */
-@media (min-width: 768px) {
-    .footer-logo img {
-        max-width: 200px; /* Adjust the size as needed */
-    }
+    max-width: 200px; /* Set a specific width for the logo */
+    height: auto;
 }
 
 .footer-menu ul {
