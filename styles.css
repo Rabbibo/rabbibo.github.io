@@ -34,8 +34,15 @@ header {
 }
 
 .logo img {
-    width: 30px; /* Adjust the size as needed */
+    width: 100px; /* Default size for mobile */
     height: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust logo size for desktop */
+@media (min-width: 768px) {
+    .logo img {
+        width: 150px; /* Adjust the size as needed */
+    }
 }
 
 .discord-invite a {
@@ -91,8 +98,15 @@ footer {
 }
 
 .footer-logo img {
-    width: 100px; /* Adjust the size as needed */
+    width: 100px; /* Default size for mobile */
     height: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust logo size for desktop */
+@media (min-width: 768px) {
+    .footer-logo img {
+        width: 150px; /* Adjust the size as needed */
+    }
 }
 
 .footer-menu ul {
