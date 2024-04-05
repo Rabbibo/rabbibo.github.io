@@ -38,10 +38,10 @@ header {
     height: auto; /* Maintain aspect ratio */
 }
 
-/* Adjust logo size for desktop */
+/* Limit max width of logo on desktop */
 @media (min-width: 768px) {
     .logo img {
-        max-width: 150px; /* Adjust the size as needed */
+        max-width: 200px; /* Adjust the size as needed */
     }
 }
 
@@ -102,10 +102,10 @@ footer {
     height: auto; /* Maintain aspect ratio */
 }
 
-/* Adjust logo size for desktop */
+/* Limit max width of logo on desktop */
 @media (min-width: 768px) {
     .footer-logo img {
-        max-width: 150px; /* Adjust the size as needed */
+        max-width: 200px; /* Adjust the size as needed */
     }
 }
 
