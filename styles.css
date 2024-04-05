@@ -1,0 +1,106 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.hamburger-menu {
+    width: 30px;
+    height: 30px;
+    background-image: url('path/to/hamburger-icon.png'); /* Add your hamburger menu icon */
+    background-size: cover;
+}
+
+.discord-invite a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main Section Styles */
+.main-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.title-screen {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* Menu Styles */
+.menu {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 100px; /* Adjust as needed */
+}
+
+.footer-menu ul {
+    list-style-type: none;
+}
+
+.footer-menu ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Copyright Styles */
+.copyright {
+    margin-top: 10px;
+}
