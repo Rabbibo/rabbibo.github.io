@@ -9,6 +9,12 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Add this CSS class to control the size of the logo */
+.logo-img {
+    width: 100px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
 /* Header Styles */
 header {
     background-color: #333;
