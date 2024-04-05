@@ -41,7 +41,7 @@ header {
 /* Limit max width of logo on desktop */
 @media (min-width: 768px) {
     .logo img {
-        max-width: 200px; /* Adjust the size as needed */
+        max-width: 78px; /* Adjust the size as needed */
     }
 }
 
