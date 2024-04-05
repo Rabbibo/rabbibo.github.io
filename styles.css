@@ -28,9 +28,9 @@ header {
     height: 30px;
 }
 
-.hamburger-menu img {
-    width: 100%;
-    height: auto;
+.menu-icon {
+    width: 30px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .logo {
@@ -39,7 +39,7 @@ header {
 }
 
 .logo img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -50,7 +50,9 @@ header {
 }
 
 .title-screen {
-    background-color: #f2f2f2;
+    background-image: url('https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/bckg.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
     padding: 20px;
     display: flex;
     justify-content: center; /* Horizontally center the content */
