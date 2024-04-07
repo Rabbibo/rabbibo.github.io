@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rab's Labs</title>
 <link rel="icon" type="image/png" href="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/favicon.png?raw=true">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&amp;display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
+    padding: 0; /* Added */
     font-family: 'Silkscreen', sans-serif;
     background-image: url('https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/bckg.jpg?raw=true');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Added */
     color: white;
     text-align: center;
     padding-top: 100px;
   }
   .navbar {
+    position: fixed; /* Changed */
+    top: 0; /* Changed */
+    width: 100%; /* Changed */
     background-color: #333;
     overflow: hidden;
     padding: 10px 0;
@@ -52,6 +56,9 @@
   .navbar-invite img {
     height: 40px;
   }
+  .content {
+    padding-top: 50px; /* Adjusted padding */
+  }
 </style>
 </head>
 <body>
@@ -78,5 +85,6 @@
   <h1>Hallo, and willkommen to Rab's Labs</h1>
 </div>
 
-</body>
-</html>
+
+
+</body></html>
