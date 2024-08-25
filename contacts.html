@@ -58,7 +58,14 @@
             border-radius: 0 0 20px 20px; /* Rounded bottom corners */
         }
 
-        .navbar img {
+        .navbar a.logo {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar a.logo img {
             height: 30px; /* Reduced logo size */
             margin-right: 10px; /* Reduced margin to bring it closer to the left */
         }
@@ -174,7 +181,9 @@
 
     <!-- Navbar -->
     <div class="navbar">
-        <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" alt="Rab's Labs Logo">
+        <a href="https://www.rabslabs.xyz" class="logo">
+            <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" alt="Rab's Labs Logo">
+        </a>
         <div>
             <a href="https://bean.rabslabs.xyz">Bean Studios</a>
             <a href="https://up.rabslabs.xyz">United Pogonia</a>
