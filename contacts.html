@@ -6,19 +6,16 @@
     <title>Contact Us - Rab's Labs</title>
     <link rel="icon" href="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" type="image/png"> <!-- Favicon -->
     <style>
-        /* Global Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
             background: url('https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/bkgd-new.jpg?raw=true') no-repeat center center fixed;
             background-size: cover;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
+            padding-bottom: 60px; /* Add padding at the bottom for footer visibility */
         }
 
-        /* Background Overlay */
         .background-overlay {
             position: fixed;
             top: 0;
@@ -30,141 +27,123 @@
             z-index: -1; /* Ensure it stays behind content */
         }
 
-        /* Custom Scrollbar Styling */
-        body::-webkit-scrollbar {
-            width: 8px;
-        }
-        body::-webkit-scrollbar-thumb {
-            background-color: #007BFF;
-            border-radius: 10px;
-        }
-        body::-webkit-scrollbar-track {
-            background-color: #f0f0f0;
-        }
-
-        /* Navbar Styles */
         .navbar {
             background-color: #333;
             color: #fff;
-            padding: 10px 20px; /* Reduced padding for the entire navbar */
+            padding: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-sizing: border-box;
             border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+            position: fixed; /* Fixed position */
+            top: 0; /* Stick to the top */
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Ensure it stays on top of other content */
         }
 
         .navbar img {
-            height: 30px; /* Reduced logo size */
-            margin-right: 10px; /* Reduced margin to bring it closer to the left */
+            height: 30px; /* Smaller logo */
+            margin-right: 10px;
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
-            padding: 8px 15px; /* Reduced padding to decrease space between links */
+            padding: 10px 15px; /* Adjusted padding */
             border-radius: 20px; /* Rounded corners for the menu links */
             transition: background-color 0.3s ease;
-            margin: 0 5px; /* Reduced margin between links */
         }
 
         .navbar a:hover {
             background-color: #575757;
         }
 
-        .navbar .mail-icon {
-            font-size: 20px; /* Reduced icon size */
-            color: #fff;
-            text-decoration: none;
-            padding: 5px;
-            margin-left: 10px; /* Spacing to match other links */
-        }
-
-        /* Section Wrapper */
         .section-wrapper {
-            margin-top: 100px; /* Reduced margin to match index.html */
-            padding: 40px 30px; /* Adjusted padding for larger sections */
-            text-align: center;
-            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
             position: relative;
-            z-index: 1;
-            max-width: 800px; /* Width adjusted to match index.html */
-            margin-left: auto;
-            margin-right: auto;
-            background: rgba(255, 255, 255, 0.4); /* Slightly transparent background */
-            border-radius: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Ensure it spans the full width */
+            margin-top: 70px; /* Space for the fixed navbar */
+        }
+
+        .section {
+            padding: 30px;
+            border-radius: 20px; /* Rounded corners for sections */
             backdrop-filter: blur(15px); /* Frosted glass effect */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Ensure it stays below the navbar */
+            width: 80%;
+            max-width: 800px;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.4); /* Slightly transparent background for glassy effect */
         }
 
-        .section-wrapper h1 {
-            font-size: 28px; /* Reduced font size */
+        .glassy-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.2); /* Slightly more transparent for enhanced glassiness */
+            border-radius: 20px; /* Rounded corners for the glassy effect */
+            backdrop-filter: blur(25px); /* Stronger blur for more pronounced frosted effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            pointer-events: none; /* Ensure the background doesn't block interactions */
         }
 
-        .section-wrapper p {
-            font-size: 16px; /* Reduced font size */
-        }
-
-        .section-wrapper img {
-            width: 80px; /* Reduced image size */
-            height: auto;
+        .section h1 {
+            color: #333;
+            font-size: 24px; /* Adjusted size */
             margin-bottom: 20px;
         }
 
-        /* Contacts Container */
-        .contacts-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
+        .section p {
+            color: #555;
+            font-size: 16px; /* Adjusted size */
+            line-height: 1.6;
         }
 
-        .contact-email {
-            width: 100%;
-            max-width: 500px;
-            padding: 12px; /* Reduced padding */
-            margin: 10px 0;
-            background-color: #f0f0f0;
-            border-radius: 15px;
-            text-align: center;
-            font-size: 16px; /* Reduced font size */
-            color: #333;
+        .contact-info {
+            margin: 20px;
+        }
+
+        .contact-info a {
+            display: block;
+            margin-bottom: 10px;
+            color: #007BFF;
             text-decoration: none;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
+            font-size: 18px;
         }
 
-        .contact-email:hover {
-            background-color: #e0e0e0;
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
-        /* Footer */
         .footer {
             background-color: #333;
             color: #fff;
-            padding: 15px; /* Reduced padding */
-            text-align: center;
-            font-size: 14px; /* Reduced font size */
-            position: fixed;
-            bottom: -60px; /* Start the footer off-screen */
-            width: 100%;
-            box-sizing: border-box;
-            z-index: 100; /* Ensure it overlays content */
-            transition: bottom 0.5s ease; /* Smooth slide effect */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px 20px 0 0; /* Rounded top corners */
+            position: fixed; /* Fixed position */
+            bottom: 0; /* Stick to the bottom */
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Ensure it stays on top of other content */
+            transform: translateY(100%); /* Hide initially */
+            transition: transform 0.3s ease; /* Smooth transition */
         }
 
         .footer.show {
-            bottom: 0; /* Slide the footer into view */
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
+            transform: translateY(0); /* Show footer */
         }
     </style>
 </head>
@@ -172,31 +151,30 @@
     <!-- Background Overlay -->
     <div class="background-overlay"></div>
 
-    <!-- Navbar -->
+    <!-- Main Content -->
     <div class="navbar">
-        <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" alt="Rab's Labs Logo">
+        <div>
+            <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" alt="Rab's Labs Logo"> <!-- Logo in navbar -->
+        </div>
         <div>
             <a href="https://bean.rabslabs.xyz">Bean Studios</a>
             <a href="https://up.rabslabs.xyz">United Pogonia</a>
             <a href="https://gerld.rabslabs.xyz">GSF Facilities</a>
         </div>
-        <a href="https://www.rabslabs.xyz/contacts" class="mail-icon">&#9993;</a>
     </div>
 
-    <!-- Main Content -->
+    <!-- Sections -->
     <div class="section-wrapper">
-        <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" alt="Rab's Labs Logo">
-        <h1>Contact Us</h1>
-        <p>Feel free to reach out to us through any of the emails below.</p>
-    </div>
-
-    <div class="section-wrapper">
-        <div class="contacts-container">
-            <a href="mailto:raberto@rabslabs.xyz" class="contact-email">raberto@rabslabs.xyz</a>
-            <a href="mailto:gerald@rabslabs.xyz" class="contact-email">gerald@rabslabs.xyz</a>
-            <a href="mailto:noobmaster@rabslabs.xyz" class="contact-email">noobmaster@rabslabs.xyz</a>
-            <a href="mailto:altereel@rabslabs.xyz" class="contact-email">altereel@rabslabs.xyz</a>
-            <a href="mailto:waffle@rabslabs.xyz" class="contact-email">waffle@rabslabs.xyz</a>
+        <div class="section">
+            <div class="glassy-background"></div>
+            <h1>Contact Us</h1>
+            <div class="contact-info">
+                <a href="mailto:raberto@rabslabs.xyz">raberto@rabslabs.xyz</a>
+                <a href="mailto:gerald@rabslabs.xyz">gerald@rabslabs.xyz</a>
+                <a href="mailto:noobmaster@rabslabs.xyz">noobmaster@rabslabs.xyz</a>
+                <a href="mailto:altereel@rabslabs.xyz">altereel@rabslabs.xyz</a>
+                <a href="mailto:waffle@rabslabs.xyz">waffle@rabslabs.xyz</a>
+            </div>
         </div>
     </div>
 
@@ -205,16 +183,31 @@
         <p>Copyright Rab's Labs, LLC 2024 | <a href="https://www.rabslabs.xyz">Home</a> | <a href="https://www.rabslabs.xyz/contacts">Contact Us</a></p>
     </div>
 
-    <!-- JavaScript -->
     <script>
-        // Detect scroll position and show/hide footer
+        let lastScrollTop = 0;
+
         window.addEventListener('scroll', function() {
             const footer = document.getElementById('footer');
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const documentHeight = document.documentElement.offsetHeight;
+
+            // Check if scrolled to bottom
+            if (scrollPosition >= documentHeight) {
                 footer.classList.add('show');
             } else {
                 footer.classList.remove('show');
             }
+
+            // Hide the footer when scrolling up
+            let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScrollTop > lastScrollTop) {
+                // Scrolling down
+                footer.classList.remove('show');
+            } else {
+                // Scrolling up
+                footer.classList.add('show');
+            }
+            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
         });
     </script>
 </body>
