@@ -15,7 +15,7 @@
             background-size: cover;
             min-height: 100vh;
             position: relative;
-            padding-bottom: 60px; /* Space for the footer */
+            overflow-x: hidden;
         }
 
         /* Background Overlay */
@@ -150,9 +150,15 @@
             text-align: center;
             font-size: 14px; /* Reduced font size */
             position: fixed;
-            bottom: 0;
+            bottom: -60px; /* Start the footer off-screen */
             width: 100%;
             box-sizing: border-box;
+            z-index: 100; /* Ensure it overlays content */
+            transition: bottom 0.5s ease; /* Smooth slide effect */
+        }
+
+        .footer.show {
+            bottom: 0; /* Slide the footer into view */
         }
 
         .footer a {
@@ -195,8 +201,21 @@
     </div>
 
     <!-- Footer -->
-    <div class="footer">
+    <div class="footer" id="footer">
         <p>Copyright Rab's Labs, LLC 2024 | <a href="https://www.rabslabs.xyz">Home</a> | <a href="https://www.rabslabs.xyz/contacts">Contact Us</a></p>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Detect scroll position and show/hide footer
+        window.addEventListener('scroll', function() {
+            const footer = document.getElementById('footer');
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                footer.classList.add('show');
+            } else {
+                footer.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
