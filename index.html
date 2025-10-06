@@ -63,6 +63,12 @@ header {
     z-index: 1000;
 }
 header img { height: 50px; }
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav a {
     color: var(--silver);
     text-decoration: none;
@@ -77,6 +83,75 @@ nav a:hover {
     background-color: var(--pomp-and-power);
     color: var(--silver);
     border-radius: 10px;
+}
+
+/* Hamburger */
+.hamburger {
+  cursor: pointer;
+  display: none;
+  margin-left: 1rem;
+}
+.hamburger input {
+  display: none;
+}
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line {
+  fill: none;
+  stroke: var(--brunswick-green);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: var(--brunswick-green);
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+.mobile-menu a {
+    color: var(--silver);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+.mobile-menu a:hover {
+    background-color: var(--pomp-and-power);
+    color: var(--silver);
+}
+.hamburger input:checked ~ .mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 /* Hero Section */
@@ -149,7 +224,7 @@ nav a:hover {
     60% { transform: translateX(-50%) translateY(5px); }
 }
 
-/* About Me Section */
+/* About Section */
 .about-section {
     background-color: var(--silver);
     padding: 4rem 5%;
@@ -168,6 +243,18 @@ nav a:hover {
     max-width: 900px;
     margin: 0 auto;
     line-height: 1.8;
+}
+
+/* Wave Divider */
+.wave {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.wave svg {
+    display: block;
+    width: 100%;
+    height: 150px;
 }
 
 /* Features Section */
@@ -250,18 +337,41 @@ footer {
     color: var(--silver);
     font-family: "Nanum Gothic", Arial, sans-serif;
 }
+
+/* Responsive Hamburger Display */
+@media (max-width: 900px) {
+    nav { display: none; }
+    .hamburger { display: block; }
+}
 </style>
 </head>
 <body>
 
 <header id="header">
     <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
+    
     <nav>
         <a href="#">Home</a>
         <a href="https://www.rabslabs.xyz/projects">Projects</a>
         <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
         <a href="https://www.rabslabs.xyz/links">Links</a>
     </nav>
+
+    <!-- Hamburger -->
+    <label class="hamburger">
+        <input type="checkbox">
+        <svg viewBox="0 0 32 32">
+            <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+            <path class="line" d="M7 16 27 16"></path>
+        </svg>
+
+        <div class="mobile-menu">
+            <a href="#">Home</a>
+            <a href="https://www.rabslabs.xyz/projects">Projects</a>
+            <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
+            <a href="https://www.rabslabs.xyz/links">Links</a>
+        </div>
+    </label>
 </header>
 
 <section class="hero">
@@ -281,6 +391,13 @@ footer {
         I specialize in photography, videography, cinematography, mechanics, and cyber projects. I manage a Jellyfin server for media streaming and host websites for friends including GSF and Bean Studios, as well as the Casa link m11ad. This platform is a central hub showcasing my work, my friends' projects hosted on my domain, and the technical setups I maintain.
     </p>
 </section>
+
+<!-- Wave Divider -->
+<div class="wave">
+    <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <path d="M0,64 C360,160 1080,0 1440,64 L1440,150 L0,150 Z" fill="#004643"></path>
+    </svg>
+</div>
 
 <div class="features-section" id="features-section">
     <div class="features">
