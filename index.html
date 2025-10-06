@@ -1,277 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rab's Labs services">
-    <meta name="keywords" content="Rabs Labs, Rab's Labs, United Pogonia, bean studio, raberto, rabslabs, rab lab">
-    <meta name="author" content="Raberto Schlumbergera">
-    <title>Rab's Labs</title>
-    <link rel="icon" href="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" type="image/png"> <!-- Favicon -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background: url('https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/bkgd-new.jpg?raw=true') no-repeat center center fixed;
-            background-size: cover;
-            padding-bottom: 60px; /* Add padding at the bottom for footer visibility */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rab's Labs</title>
 
-        .background-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3); /* Slightly opaque white overlay */
-            backdrop-filter: blur(10px); /* Blur effect for the background */
-            z-index: -1; /* Ensure it stays behind content */
-        }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
 
-        /* Custom Scrollbar Styling */
-        body::-webkit-scrollbar {
-            width: 12px;
-        }
-        body::-webkit-scrollbar-thumb {
-            background-color: #575757;
-            border-radius: 10px;
-        }
-        body::-webkit-scrollbar-track {
-            background-color: #f0f0f0;
-        }
+<style>
+:root {
+    --brunswick-green: #004643;
+    --pomp-and-power: #706993;
+    --silver: #bfb5af;
+    --dim-gray: #6d6569;
+    --raisin-black: #1a1423;
+}
 
-        .navbar {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-radius: 0 0 20px 20px; /* Rounded bottom corners */
-            position: fixed; /* Fixed position */
-            top: 0; /* Stick to the top */
-            left: 0;
-            right: 0;
-            z-index: 1000; /* Ensure it stays on top of other content */
-        }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .navbar img {
-            height: 40px;
-            margin-right: 10px;
-        }
+html { scroll-behavior: smooth; }
 
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 20px; /* Rounded corners for the menu links */
-            transition: background-color 0.3s ease;
-        }
+body {
+    font-family: "Nanum Gothic", Arial, sans-serif;
+    background-color: var(--silver);
+    color: var(--raisin-black);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-        .navbar a:hover {
-            background-color: #575757;
-        }
+img {
+    user-drag: none; 
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
 
-        .navbar .mail-icon {
-            font-size: 24px;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 50%; /* Circular mail icon */
-            transition: background-color 0.3s ease;
-        }
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--raisin-black);
+    z-index: 1000;
+}
 
-        .navbar .mail-icon:hover {
-            background-color: #575757;
-        }
+header img { height: 50px; }
 
-        .section-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-            position: relative;
-            width: 100%; /* Ensure it spans the full width */
-            margin-top: 70px; /* Add top margin to prevent content from being hidden behind the fixed navbar */
-        }
+nav a {
+    color: var(--silver);
+    text-decoration: none;
+    font-weight: 700;
+    font-family: "Nanum Gothic", Arial, sans-serif;
+    margin-left: 2rem;
+    transition: all 0.3s;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+}
 
-        .section {
-            padding: 50px;
-            border-radius: 20px; /* Rounded corners for sections */
-            backdrop-filter: blur(15px); /* Enhanced frosted glass effect */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: relative;
-            z-index: 2; /* Ensure it stays below the navbar */
-            width: 80%;
-            max-width: 800px;
-            margin: 20px;
-            background: rgba(255, 255, 255, 0.4); /* Slightly transparent background for glassy effect */
-        }
+nav a:hover {
+    background-color: var(--pomp-and-power);
+    color: var(--silver);
+    border-radius: 10px;
+}
 
-        .glassy-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.2); /* Slightly more transparent for enhanced glassiness */
-            border-radius: 20px; /* Rounded corners for the glassy effect */
-            backdrop-filter: blur(25px); /* Stronger blur for more pronounced frosted effect */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            pointer-events: none; /* Ensure the background doesn't block interactions */
-        }
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-top: 100px;
+}
 
-        .section h1 {
-            color: #333;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+.hero-image-wrapper {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px);
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 30px;
+    z-index: 0;
+}
 
-        .section p {
-            color: #555;
-            font-size: 18px;
-            line-height: 1.6;
-        }
+.hero-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
 
-        .section .logo {
-            width: 100px; /* Adjust size as needed */
-            height: auto;
-            margin-bottom: 20px; /* Space between logo and text */
-        }
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--raisin-black);
+}
 
-        .projects-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
-        }
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Dela Gothic One', sans-serif;
+}
 
-        .project {
-            width: 120px;
-            height: 60px;
-            border-radius: 30px; /* Rounded rectangle */
-            background: linear-gradient(145deg, #ffffff, #e0e0e0); /* Glossy finish */
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.8); /* Glossy effect */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-            cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-        .project:hover {
-            transform: scale(1.1) translateZ(20px); /* Expand and move closer effect */
-            background: linear-gradient(145deg, #e0e0e0, #ffffff); /* Slightly different glossy effect on hover */
-            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3), -4px -4px 12px rgba(255, 255, 255, 0.9); /* Enhanced glossy effect */
-        }
+/* Scroll Arrow */
+.scroll-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem; 
+    font-weight: bold;
+    color: #ffffffcc; 
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+    z-index: 2;
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+.scroll-arrow::after {
+    content: "\2193";
+    display: block;
+    font-size: 3rem; 
+}
 
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 20px 20px 0 0; /* Rounded top corners */
-            position: fixed; /* Fixed position */
-            bottom: -100px; /* Initially hidden off-screen */
-            left: 0;
-            right: 0;
-            z-index: 1000; /* Ensure it stays on top of other content */
-            text-align: center;
-            transition: transform 0.5s ease-in-out; /* Smooth sliding effect */
-        }
+.scroll-arrow:hover { opacity: 1; }
 
-        .footer.show {
-            transform: translateY(-100%); /* Slide footer into view */
-        }
-    </style>
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(10px); }
+    60% { transform: translateX(-50%) translateY(5px); }
+}
+
+/* About Me Section */
+.about-section {
+    background-color: var(--silver);
+    padding: 4rem 5%;
+    border-radius: 20px;
+    margin: 2rem 5%;
+    color: var(--raisin-black);
+    text-align: center;
+}
+
+.about-section h2 {
+    font-family: 'Dela Gothic One', sans-serif;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Features Section */
+.features-section {
+    background-color: var(--brunswick-green);
+    padding: 4rem 5%;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.section-card {
+    background-color: var(--silver);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+    font-family: "Nanum Gothic", Arial, sans-serif;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--pomp-and-power);
+}
+
+.section-card h2 { 
+    margin-bottom: 0.5rem; 
+    color: var(--brunswick-green); 
+    font-family: 'Dela Gothic One', sans-serif;
+}
+
+.feature-link {
+    text-decoration: none;
+    color: var(--brunswick-green);
+    transition: background-color 0.3s, color 0.3s, border-radius 0.3s;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+}
+
+.feature-link:hover {
+    background-color: var(--pomp-and-power);
+    color: var(--silver);
+    border-radius: 10px;
+}
+
+.feature-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.feature-item-row p {
+    margin: 0;
+    font-weight: 500;
+}
+
+button {
+  background-color: var(--brunswick-green);
+  color: white;
+  border-radius: 10em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--brunswick-green);
+  box-shadow: 0 0 0 0 var(--brunswick-green);
+}
+
+button:hover {
+  background-color: var(--pomp-and-power);
+  color: var(--silver);
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 var(--pomp-and-power);
+}
+
+button:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 var(--pomp-and-power);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    background-color: var(--raisin-black);
+    color: var(--silver);
+    font-family: "Nanum Gothic", Arial, sans-serif;
+}
+</style>
 </head>
 <body>
-    <!-- Background Overlay -->
-    <div class="background-overlay"></div>
 
-    <!-- Main Content -->
-    <div class="navbar">
-        <div>
-            <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" alt="Rab's Labs Logo"> <!-- Logo in navbar -->
-        </div>
-        <div>
-            <a href="https://www.rabslabs.xyz/bean-studios/">Bean Studios</a>
-            <a href="https://up.rabslabs.xyz">United Pogonia</a>
-            <a href="https://www.rabslabs.xyz/gsf-facilities/">GSF Facilities</a>
-        </div>
-        <div>
-            <a href="https://www.rabslabs.xyz/contacts" class="mail-icon">&#9993;</a> <!-- Link to your contact page -->
-        </div>
+<header id="header">
+    <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
+    <nav>
+        <a href="#">Home</a>
+        <a href="https://www.rabslabs.xyz/projects">Projects</a>
+        <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
+        <a href="https://www.rabslabs.xyz/links">Links</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-image-wrapper">
+        <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/backdrops/IMG_20240314_114826123.jpg" alt="Background Image">
     </div>
-
-    <!-- Sections -->
-    <div class="section-wrapper">
-        <div class="section">
-            <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" alt="Rab's Labs Logo" class="logo"> <!-- Logo above welcome text -->
-            <h1>Welcome to Rab's Labs!</h1>
-            <p>Rab's Labs is dedicated to innovation and excellence. Learn more about our mission, vision, and values here.</p>
-        </div>
+    <div class="hero-content">
+        <h1 id="hero-title"></h1>
+        <p id="hero-subtext"></p>
     </div>
+    <div class="scroll-arrow" onclick="scrollDown()"></div>
+</section>
 
-    <div class="section-wrapper">
-        <div class="section">
-            <h1>About Us</h1>
-            <p>At Rab's Labs, we focus on pioneering technological solutions and fostering creativity. Discover more about our journey and team.</p>
+<section class="about-section">
+    <h2>About Me</h2>
+    <p>
+        I specialize in photography, videography, cinematography, mechanics, and cyber projects. I manage a Jellyfin server for media streaming and host websites for friends including GSF and Bean Studios, as well as the Casa link m11ad. This platform is a central hub showcasing my work, my friends' projects hosted on my domain, and the technical setups I maintain.
+    </p>
+</section>
+
+<div class="features-section" id="features-section">
+    <div class="features">
+        <div class="section-card">
+            <h2><a href="https://www.rabslabs.xyz/projects" class="feature-link">Projects</a></h2>
+            <p style="margin-bottom:1.5rem;">Showcasing my hands-on projects like car builds and personal work.</p>
+            <div class="feature-item-row">
+                <p>Project Terry</p>
+                <button onclick="window.location.href='https://www.rabslabs.xyz/projects/terry'">Go</button>
+            </div>
         </div>
-    </div>   
 
-    <div class="section-wrapper">
-        <div class="section">
-            <h1>Updates</h1>
-            <ui>
-                <li>Rab's Labs went through some new updates, the website looks clean and modern</li>
-                <li>GSF Facilities is also going through updates</li>
-                <li>The portolio page is under construction</li>
-            </ui>
+        <div class="section-card">
+            <h2><a href="https://www.rabslabs.xyz/portfolio" class="feature-link">Portfolio</a></h2>
+            <p style="margin-bottom:1.5rem;">A collection of videos, photos, and cyber work.</p>
+            <div class="feature-item-row">
+                <p>Videos</p>
+                <button onclick="window.location.href='https://www.rabslabs.xyz/portfolio/videos'">Go</button>
+            </div>
+            <div class="feature-item-row">
+                <p>Photography</p>
+                <button onclick="window.location.href='https://www.rabslabs.xyz/portfolio/photography'">Go</button>
+            </div>
+            <div class="feature-item-row">
+                <p>Cyber</p>
+                <button onclick="window.location.href='https://www.rabslabs.xyz/portfolio/cyber'">Go</button>
+            </div>
         </div>
-    </div>   
 
-    <div class="section-wrapper">
-        <div class="section">
-            <h1>Projects</h1>
-            <div class="projects-container">
-                <a href="/project/labs" class="project">Project Labs</a>
+        <div class="section-card">
+            <h2><a href="https://www.rabslabs.xyz/links" class="feature-link">Links</a></h2>
+            <p style="margin-bottom:1.5rem;">Quick access to subdomains and affiliated projects.</p>
+            <div class="feature-item-row">
+                <p>GSF</p>
+                <button onclick="window.location.href='https://gsf.rabslabs.xyz'">Go</button>
+            </div>
+            <div class="feature-item-row">
+                <p>Bean Studios</p>
+                <button onclick="window.location.href='https://bean.rabslabs.xyz'">Go</button>
+            </div>
+            <div class="feature-item-row">
+                <p>TV3</p>
+                <button onclick="window.location.href='https://tv3.rabslabs.xyz'">Go</button>
+            </div>
+            <div class="feature-item-row">
+                <p>M11AD</p>
+                <button onclick="window.location.href='https://m11ad.rabslabs.xyz'">Go</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <div class="footer" id="footer">
-        <p>Copyright Rab's Labs, LLC 2024 | <a href="https://www.rabslabs.xyz">Home</a> | <a href="https://www.rabslabs.xyz/contacts">Contact Us</a></p>
-    </div>
+<footer>
+    &copy; 2025 Rab's Labs Inc. All rights reserved.
+</footer>
 
-    <script>
-        // Show footer when scrolled to bottom
-        window.addEventListener('scroll', function() {
-            const footer = document.getElementById('footer');
-            const scrollPosition = window.innerHeight + window.scrollY;
-            const documentHeight = document.documentElement.offsetHeight;
+<script>
+function scrollDown() {
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
+}
 
-            if (scrollPosition >= documentHeight) {
-                footer.classList.add('show');
-            } else {  
-                footer.classList.remove('show');
-            }
-        });
-    </script>
+// Hero typing effect
+const heroTitleText = "Welcome to Rab's Labs";
+const heroSubtext = "Your central hub for projects, portfolio, and hosted technical setups.";
+const heroTitleEl = document.getElementById("hero-title");
+const heroSubtextEl = document.getElementById("hero-subtext");
+let i = 0, j = 0;
+
+function typeHeroTitle() {
+    if (i < heroTitleText.length) {
+        heroTitleEl.innerHTML += heroTitleText.charAt(i);
+        i++;
+        setTimeout(typeHeroTitle, 30);
+    } else { typeHeroSubtext(); }
+}
+
+function typeHeroSubtext() {
+    if (j < heroSubtext.length) {
+        heroSubtextEl.innerHTML += heroSubtext.charAt(j);
+        j++;
+        setTimeout(typeHeroSubtext, 15);
+    }
+}
+
+window.addEventListener("load", typeHeroTitle);
+</script>
+
 </body>
 </html>
