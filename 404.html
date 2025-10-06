@@ -8,8 +8,21 @@
 <!-- Favicon -->
 <link rel="icon" href="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" type="image/png">
 
-<!-- Meta description -->
-<meta name="description" content="Page not found on Rab's Labs.">
+<!-- Meta description for social previews -->
+<meta name="description" content="Your central hub for projects, portfolio, and hosted technical setups.">
+
+<!-- Open Graph / Discord, Facebook, LinkedIn previews -->
+<meta property="og:title" content="Rab's Labs">
+<meta property="og:description" content="Your central hub for projects, portfolio, and hosted technical setups.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rabslabs.xyz/">
+<meta property="og:image" content="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/backdrops/IMG_20240314_114826123.jpg">
+
+<!-- Twitter previews -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rab's Labs">
+<meta name="twitter:description" content="Your central hub for projects, portfolio, and hosted technical setups.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/backdrops/IMG_20240314_114826123.jpg">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
@@ -24,18 +37,12 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
 body {
     font-family: "Nanum Gothic", Arial, sans-serif;
     background-color: var(--silver);
     color: var(--raisin-black);
     line-height: 1.6;
     overflow-x: hidden;
-}
-img {
-    user-drag: none; 
-    -webkit-user-drag: none;
-    pointer-events: none;
 }
 
 /* Header */
@@ -50,15 +57,20 @@ header {
     z-index: 1000;
 }
 header img { height: 50px; }
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav a {
     color: var(--silver);
     text-decoration: none;
     font-weight: 700;
-    font-family: "Nanum Gothic", Arial, sans-serif;
     margin-left: 2rem;
-    transition: all 0.3s;
     padding: 0.2em 0.5em;
     border-radius: 5px;
+    transition: all 0.3s;
 }
 nav a:hover {
     background-color: var(--pomp-and-power);
@@ -66,47 +78,108 @@ nav a:hover {
     border-radius: 10px;
 }
 
+/* Hamburger */
+.hamburger {
+  cursor: pointer;
+  display: none;
+  margin-left: 1rem;
+}
+.hamburger input { display: none; }
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line {
+  fill: none;
+  stroke: var(--brunswick-green);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line-top-bottom { stroke-dasharray: 12 63; }
+.hamburger input:checked + svg { transform: rotate(-45deg); }
+.hamburger input:checked + svg .line-top-bottom {
+    stroke-dasharray: 20 300;
+    stroke-dashoffset: -32.42;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: var(--brunswick-green);
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+.mobile-menu a {
+    color: var(--silver);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+.mobile-menu a:hover {
+    background-color: var(--pomp-and-power);
+    color: var(--silver);
+}
+.hamburger input:checked ~ .mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
 /* 404 Content */
-.error-container {
+.four-oh-four {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding-top: 100px;
     text-align: center;
 }
-.error-container h1 {
+.four-oh-four h1 {
+    font-size: 6rem;
     font-family: 'Dela Gothic One', sans-serif;
-    font-size: 5rem;
     margin-bottom: 1rem;
-    color: var(--raisin-black);
 }
-.error-container p {
+.four-oh-four p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
 }
-button {
-  background-color: var(--brunswick-green);
-  color: white;
-  border-radius: 10em;
-  font-size: 17px;
-  font-weight: 600;
-  padding: 1em 2em;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  border: 1px solid var(--brunswick-green);
-  box-shadow: 0 0 0 0 var(--brunswick-green);
+.four-oh-four button {
+    background-color: var(--brunswick-green);
+    color: white;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 1em 2em;
+    cursor: pointer;
+    border: 1px solid var(--brunswick-green);
+    transition: all 0.3s ease-in-out;
 }
-button:hover {
-  background-color: var(--pomp-and-power);
-  color: var(--silver);
-  transform: translateY(-4px) translateX(-2px);
-  box-shadow: 2px 5px 0 0 var(--pomp-and-power);
+.four-oh-four button:hover {
+    background-color: var(--pomp-and-power);
+    color: var(--silver);
 }
-button:active {
-  transform: translateY(2px) translateX(1px);
-  box-shadow: 0 0 0 0 var(--pomp-and-power);
+
+/* Responsive Hamburger Display */
+@media (max-width: 900px) {
+    nav { display: none; }
+    .hamburger { display: block; }
 }
 </style>
 </head>
@@ -114,18 +187,35 @@ button:active {
 
 <header id="header">
     <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
+    
     <nav>
-        <a href="https://www.rabslabs.xyz/">Home</a>
+        <a href="/">Home</a>
         <a href="https://www.rabslabs.xyz/projects">Projects</a>
         <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
         <a href="https://www.rabslabs.xyz/links">Links</a>
     </nav>
+
+    <!-- Hamburger -->
+    <label class="hamburger">
+        <input type="checkbox">
+        <svg viewBox="0 0 32 32">
+            <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+            <path class="line" d="M7 16 27 16"></path>
+        </svg>
+
+        <div class="mobile-menu">
+            <a href="/">Home</a>
+            <a href="https://www.rabslabs.xyz/projects">Projects</a>
+            <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
+            <a href="https://www.rabslabs.xyz/links">Links</a>
+        </div>
+    </label>
 </header>
 
-<div class="error-container">
+<div class="four-oh-four">
     <h1>404</h1>
-    <p>Oops! This page doesn't exist.</p>
-    <button onclick="window.location.href='https://www.rabslabs.xyz/'">Return Home</button>
+    <p>Oops… looks like this page doesn’t exist.</p>
+    <button onclick="window.location.href='/'">Return Home</button>
 </div>
 
 </body>
