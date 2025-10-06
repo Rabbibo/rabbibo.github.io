@@ -1,198 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="404 Page - Rab's Labs" />
-  <title>404 - Page Not Found</title>
-  <link rel="icon" href="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" type="image/png" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background: url('https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/bkgd-new.jpg?raw=true') no-repeat center center fixed;
-      background-size: cover;
-      padding-bottom: 60px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Rab's Labs</title>
 
-    .background-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
-      z-index: -1;
-    }
+<!-- Favicon -->
+<link rel="icon" href="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" type="image/png">
 
-    body::-webkit-scrollbar {
-      width: 12px;
-    }
-    body::-webkit-scrollbar-thumb {
-      background-color: #575757;
-      border-radius: 10px;
-    }
-    body::-webkit-scrollbar-track {
-      background-color: #f0f0f0;
-    }
+<!-- Meta description -->
+<meta name="description" content="Page not found on Rab's Labs.">
 
-    .navbar {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 0 0 20px 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
 
-    .navbar img {
-      height: 40px;
-      margin-right: 10px;
-    }
+<style>
+:root {
+    --brunswick-green: #004643;
+    --pomp-and-power: #706993;
+    --silver: #bfb5af;
+    --dim-gray: #6d6569;
+    --raisin-black: #1a1423;
+}
 
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      transition: background-color 0.3s ease;
-    }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: "Nanum Gothic", Arial, sans-serif;
+    background-color: var(--silver);
+    color: var(--raisin-black);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+img {
+    user-drag: none; 
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
 
-    .navbar a:hover {
-      background-color: #575757;
-    }
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--raisin-black);
+    z-index: 1000;
+}
+header img { height: 50px; }
+nav a {
+    color: var(--silver);
+    text-decoration: none;
+    font-weight: 700;
+    font-family: "Nanum Gothic", Arial, sans-serif;
+    margin-left: 2rem;
+    transition: all 0.3s;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+}
+nav a:hover {
+    background-color: var(--pomp-and-power);
+    color: var(--silver);
+    border-radius: 10px;
+}
 
-    .navbar .mail-icon {
-      font-size: 24px;
-      padding: 10px;
-      border-radius: 50%;
-      text-decoration: none;
-    }
-
-    .navbar .mail-icon:hover {
-      background-color: #575757;
-    }
-
-    .section-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 100px;
-      width: 100%;
-    }
-
-    .section {
-      padding: 50px;
-      border-radius: 20px;
-      backdrop-filter: blur(15px);
-      background: rgba(255, 255, 255, 0.4);
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      z-index: 2;
-      width: 80%;
-      max-width: 800px;
-      margin: 20px;
-    }
-
-    .section h1 {
-      color: #333;
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      color: #555;
-      font-size: 20px;
-    }
-
-    .section a {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 24px;
-      font-size: 18px;
-      color: #fff;
-      background-color: #333;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .section a:hover {
-      background-color: #575757;
-    }
-
-    .footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px 20px 0 0;
-      position: fixed;
-      bottom: -100px;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      text-align: center;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .footer.show {
-      transform: translateY(-100%);
-    }
-  </style>
+/* 404 Content */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 100px;
+    text-align: center;
+}
+.error-container h1 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: var(--raisin-black);
+}
+.error-container p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+button {
+  background-color: var(--brunswick-green);
+  color: white;
+  border-radius: 10em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--brunswick-green);
+  box-shadow: 0 0 0 0 var(--brunswick-green);
+}
+button:hover {
+  background-color: var(--pomp-and-power);
+  color: var(--silver);
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 var(--pomp-and-power);
+}
+button:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 var(--pomp-and-power);
+}
+</style>
 </head>
 <body>
-  <div class="background-overlay"></div>
 
-  <div class="navbar">
-    <div>
-      <img src="https://github.com/Rabbibo/rabbibo.github.io/blob/main/media/RabsLabsFBO.png?raw=true" alt="Rab's Labs Logo" />
-    </div>
-    <div>
-      <a href="https://www.rabslabs.xyz/bean-studios/">Bean Studios</a>
-      <a href="https://up.rabslabs.xyz">United Pogonia</a>
-      <a href="https://www.rabslabs.xyz/gsf-facilities/">GSF Facilities</a>
-    </div>
-    <div>
-      <a href="https://www.rabslabs.xyz/contacts" class="mail-icon">&#9993;</a>
-    </div>
-  </div>
+<header id="header">
+    <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
+    <nav>
+        <a href="https://www.rabslabs.xyz/">Home</a>
+        <a href="https://www.rabslabs.xyz/projects">Projects</a>
+        <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
+        <a href="https://www.rabslabs.xyz/links">Links</a>
+    </nav>
+</header>
 
-  <div class="section-wrapper">
-    <div class="section">
-      <h1>404 - Page Not Found</h1>
-      <p>It seems you've reached a page that doesn't exist.<br>Please check the URL or head back to the homepage.</p>
-      <a href="https://www.rabslabs.xyz">Return to Homepage</a>
-    </div>
-  </div>
+<div class="error-container">
+    <h1>404</h1>
+    <p>Oops! This page doesn't exist.</p>
+    <button onclick="window.location.href='https://www.rabslabs.xyz/'">Return Home</button>
+</div>
 
-  <div class="footer" id="footer">
-    <p>&copy; Rab's Labs, LLC 2024 | <a href="https://www.rabslabs.xyz" style="color: #fff;">Home</a> | <a href="https://www.rabslabs.xyz/contacts" style="color: #fff;">Contact Us</a></p>
-  </div>
-
-  <script>
-    window.addEventListener('scroll', function () {
-      const footer = document.getElementById('footer');
-      const scrollPosition = window.innerHeight + window.scrollY;
-      const documentHeight = document.documentElement.offsetHeight;
-
-      if (scrollPosition >= documentHeight) {
-        footer.classList.add('show');
-      } else {
-        footer.classList.remove('show');
-      }
-    });
-  </script>
 </body>
 </html>
