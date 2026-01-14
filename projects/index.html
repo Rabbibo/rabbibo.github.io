@@ -1,0 +1,345 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - Rab's Labs</title>
+
+<link rel="icon" href="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" type="image/png">
+
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Nanum+Gothic:wght@400;700&amp;display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --brunswick-green: #004643;
+  --pomp-and-power: #706993;
+  --silver: #bfb5af;
+  --dim-gray: #6d6569;
+  --raisin-black: #1a1423;
+  --alert-red: #e74c3c;
+  --good-green: #2ecc71;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Nanum Gothic", Arial, sans-serif;
+  background-color: var(--silver);
+  color: var(--raisin-black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { user-drag:none; -webkit-user-drag:none; pointer-events:none; }
+
+/* Header */
+header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: var(--raisin-black);
+  z-index: 1000;
+}
+header img { height: 50px; }
+
+nav { display: flex; align-items: center; }
+nav a {
+  color: var(--silver);
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 2rem;
+  transition: all 0.3s;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
+nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); border-radius:10px; }
+
+/* Hamburger */
+.hamburger { cursor: pointer; display: none; margin-left: 1rem; }
+.hamburger input { display: none; }
+.hamburger svg { height: 3em; transition: transform 600ms cubic-bezier(0.4,0,0.2,1); }
+.line { fill: none; stroke: var(--brunswick-green); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; transition: stroke-dasharray 600ms cubic-bezier(0.4,0,0.2,1), stroke-dashoffset 600ms cubic-bezier(0.4,0,0.2,1); }
+.line-top-bottom { stroke-dasharray: 12 63; }
+.hamburger input:checked + svg { transform: rotate(-45deg); }
+.hamburger input:checked + svg .line-top-bottom { stroke-dasharray: 20 300; stroke-dashoffset: -32.42; }
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: var(--brunswick-green);
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+.mobile-menu a {
+  color: var(--silver);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+.mobile-menu a:hover { background-color: var(--pomp-and-power); color: var(--silver); }
+.hamburger input:checked ~ .mobile-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+/* Page Sections */
+.page-title-section {
+    padding-top: 150px;
+    padding-bottom: 2rem;
+    text-align: center;
+    background-color: var(--silver);
+}
+.page-title-section h1 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 3rem;
+    color: var(--brunswick-green);
+}
+
+.section {
+    padding: 4rem 5%;
+}
+
+/* Homelab Specifics */
+.server-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.server-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--brunswick-green);
+}
+.server-card h3 {
+    font-family: 'Dela Gothic One', sans-serif;
+    color: var(--raisin-black);
+    margin-bottom: 1rem;
+}
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.status-online { background-color: var(--good-green); }
+.status-offline { background-color: var(--alert-red); }
+
+/* Project 2015 Specifics */
+.project-2015-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.route-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: var(--silver);
+    background: rgba(255,255,255,0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+.route-item {
+    white-space: nowrap;
+}
+.route-item span { color: #fff; }
+
+.episode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.episode-card {
+    background: rgba(255,255,255,0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px dashed rgba(255,255,255,0.3);
+    text-align: center;
+    transition: transform 0.2s;
+}
+.episode-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.15);
+}
+.ep-date {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--silver);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Wave Divider */
+.wave { width: 100%; overflow: hidden; line-height: 0; }
+.wave svg { display: block; width: 100%; height: 150px; }
+.wave-fill-green { fill: var(--brunswick-green); }
+
+footer {
+  text-align: center;
+  padding: 2rem 5%;
+  background-color: var(--raisin-black);
+  color: var(--silver);
+}
+
+@media (max-width: 900px) {
+  nav { display: none; }
+  .hamburger { display: block; }
+  .page-title-section { padding-top: 120px; }
+  .route-list { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
+  <nav>
+    <a href="https://www.rabslabs.xyz">Home</a>
+    <a href="https://www.rabslabs.xyz/projects">Projects</a>
+    <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
+    <a href="https://www.rabslabs.xyz/links">Links</a>
+  </nav>
+
+  <label class="hamburger">
+    <input type="checkbox">
+    <svg viewBox="0 0 32 32">
+      <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+      <path class="line" d="M7 16 27 16"></path>
+    </svg>
+    <div class="mobile-menu">
+      <a href="https://www.rabslabs.xyz">Home</a>
+      <a href="https://www.rabslabs.xyz/projects">Projects</a>
+      <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
+      <a href="https://www.rabslabs.xyz/links">Links</a>
+    </div>
+  </label>
+</header>
+
+<div class="page-title-section">
+    <h1>Current Projects</h1>
+    <p>A look into the hardware I run and the stories I'm telling.</p>
+</div>
+
+<section class="section" id="homelab">
+    <h2 style="font-family: 'Dela Gothic One', sans-serif; color: var(--brunswick-green); margin-bottom: 1rem;">Homelab &amp; Infrastructure</h2>
+    <p>My personal playground for networking, virtualization, and service hosting. These systems run 24/7 to power Rab's Labs.</p>
+    
+    <div class="server-grid">
+        <div class="server-card">
+            <h3>D14MS</h3>
+            <p><span class="status-indicator status-online"></span><strong>Status:</strong> Online</p>
+            <p><strong>Roles:</strong> Jellyfin, NAS</p>
+            <p style="margin-top:1rem;">The primary media powerhouse. Hosts the entire Jellyfin library and handles centralized file storage.</p>
+        </div>
+
+        <div class="server-card" style="border-left-color: var(--alert-red);">
+            <h3>M11AD</h3>
+            <p><span class="status-indicator status-offline"></span><strong>Status:</strong> Offline</p>
+            <p><strong>Roles:</strong> Homebridge, Home Assistant</p>
+            <p style="margin-top:1rem;">Dedicated to home automation and bridging smart devices. Currently undergoing maintenance.</p>
+        </div>
+    </div>
+</section>
+
+<div class="wave">
+    <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <path d="M0,64 C360,160 1080,0 1440,64 L1440,150 L0,150 Z" class="wave-fill-green"></path>
+    </svg>
+</div>
+
+<section class="section" id="project-2015" style="background-color: var(--brunswick-green); color: var(--silver);">
+    <div class="project-2015-container">
+        <h2 style="font-family: 'Dela Gothic One', sans-serif; color: #fff; text-align: center; font-size: 2.5rem;">Project 2015</h2>
+        
+        <p style="text-align: center; font-size: 1.1rem; margin-top: 1rem;">
+            A massive archival and restoration effort. 
+        </p>
+
+        <ul class="route-list">
+            <li class="route-item"><span>Texas</span> →</li>
+            <li class="route-item"><span>New Mexico</span> →</li>
+            <li class="route-item"><span>Colorado</span> →</li>
+            <li class="route-item"><span>Utah</span> →</li>
+            <li class="route-item"><span>Idaho</span> →</li>
+            <li class="route-item"><span>Oregon</span> →</li>
+            <li class="route-item"><span>California</span> →</li>
+            <li class="route-item"><span>Arizona</span> →</li>
+            <li class="route-item"><span>New Mexico</span> →</li>
+            <li class="route-item"><span>Texas</span></li>
+        </ul>
+
+        <div style="background-color: rgba(0,0,0,0.2); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+            <h3 style="color: #fff; margin-bottom: 1rem;">The Backstory</h3>
+            <p>
+                In 2015, four adults embarked on a cross-country road trip spanning the American West. 
+                Ten years later, I am piecing together their journey. 
+            </p>
+            <br>
+            <p>
+                <strong>The Challenge:</strong> I wasn't there. I am editing this story a decade later, relying entirely on the raw footage they left behind to reconstruct the narrative, the humor, and the memories of that summer.
+            </p>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+            <h3 style="color: #fff;">Episodes</h3>
+            <p style="font-style: italic; opacity: 0.8; margin-top: 1rem;">Daily vlogs from September 12th to 18th, 2015.</p>
+            
+            <div class="episode-grid">
+                <div class="episode-card">
+                    <h4>Episode 1</h4>
+                    <span class="ep-date">Sept 12, 2015</span>
+                </div>
+                <div class="episode-card">
+                    <h4>Episode 2</h4>
+                    <span class="ep-date">Sept 13, 2015</span>
+                </div>
+                <div class="episode-card">
+                    <h4>Episode 3</h4>
+                    <span class="ep-date">Sept 14, 2015</span>
+                </div>
+                <div class="episode-card">
+                    <h4>Episode 4</h4>
+                    <span class="ep-date">Sept 15, 2015</span>
+                </div>
+                <div class="episode-card">
+                    <h4>Episode 5</h4>
+                    <span class="ep-date">Sept 16, 2015</span>
+                </div>
+                <div class="episode-card">
+                    <h4>Episode 6</h4>
+                    <span class="ep-date">Sept 17, 2015</span>
+                </div>
+                <div class="episode-card">
+                    <h4>Episode 7</h4>
+                    <span class="ep-date">Sept 18, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+  © 2025 Rab's Labs Inc. All rights reserved.
+</footer>
+
+
+<protonpass-root-6044 data-protonpass-role="root" data-protonpass-theme="os"></protonpass-root-6044></body></html>
