@@ -1,11 +1,13 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects - Rab's Labs</title>
 
 <link rel="icon" href="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" type="image/png">
 
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Nanum+Gothic:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -157,9 +159,7 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
     padding: 1.5rem;
     border-radius: 10px;
 }
-.route-item {
-    white-space: nowrap;
-}
+.route-item { white-space: nowrap; }
 .route-item span { color: #fff; }
 
 .episode-grid {
@@ -180,6 +180,22 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
     transform: translateY(-5px);
     background: rgba(255,255,255,0.15);
 }
+
+/* Keep this CSS class for when you add iframes later */
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+}
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 .ep-date {
     display: block;
     font-size: 0.8rem;
@@ -240,7 +256,7 @@ footer {
 </div>
 
 <section class="section" id="homelab">
-    <h2 style="font-family: 'Dela Gothic One', sans-serif; color: var(--brunswick-green); margin-bottom: 1rem;">Homelab &amp; Infrastructure</h2>
+    <h2 style="font-family: 'Dela Gothic One', sans-serif; color: var(--brunswick-green); margin-bottom: 1rem;">Homelab & Infrastructure</h2>
     <p>My personal playground for networking, virtualization, and service hosting. These systems run 24/7 to power Rab's Labs.</p>
     
     <div class="server-grid">
@@ -341,5 +357,5 @@ footer {
   © 2025 Rab's Labs Inc. All rights reserved.
 </footer>
 
-
-<protonpass-root-6044 data-protonpass-role="root" data-protonpass-theme="os"></protonpass-root-6044></body></html>
+</body>
+</html>
