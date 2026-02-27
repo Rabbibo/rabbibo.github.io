@@ -90,6 +90,7 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
   border-radius: 10px;
+  transition: all 0.3s;
 }
 .mobile-menu a:hover { background-color: var(--pomp-and-power); color: var(--silver); }
 .hamburger input:checked ~ .mobile-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
@@ -204,13 +205,15 @@ footer {
 </head>
 <body>
 
-<header>
-  <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
+<header id="header">
+  <a href="/"><img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo"></a>
+  
   <nav>
-    <a href="https://www.rabslabs.xyz">Home</a>
-    <a href="https://www.rabslabs.xyz/projects">Projects</a>
-    <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
-    <a href="https://www.rabslabs.xyz/links">Links</a>
+    <a href="/">Home</a>
+    <a href="/projects">Projects</a>
+    <a href="/status">Status</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/links">Links</a>
   </nav>
 
   <label class="hamburger">
@@ -219,11 +222,13 @@ footer {
       <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
       <path class="line" d="M7 16 27 16"></path>
     </svg>
+
     <div class="mobile-menu">
-      <a href="https://www.rabslabs.xyz">Home</a>
-      <a href="https://www.rabslabs.xyz/projects">Projects</a>
-      <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
-      <a href="https://www.rabslabs.xyz/links">Links</a>
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/status">Status</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/links">Links</a>
     </div>
   </label>
 </header>
