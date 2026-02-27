@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rab's Labs</title>
 
-<link rel="icon" href="/media/RabsLabsFBO.png" type="image/png">
+<link rel="icon" href="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" type="image/png">
 
 <meta name="description" content="Your central hub for projects, portfolio, and hosted technical setups.">
 <meta property="og:title" content="Rab's Labs">
 <meta property="og:description" content="Your central hub for projects, portfolio, and hosted technical setups.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.rabslabs.xyz/">
-<meta property="og:image" content="https://www.rabslabs.xyz/backdrops/IMG_20240314_114826123.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/backdrops/IMG_20240314_114826123.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rab's Labs">
 <meta name="twitter:description" content="Your central hub for projects, portfolio, and hosted technical setups.">
-<meta name="twitter:image" content="https://www.rabslabs.xyz/backdrops/IMG_20240314_114826123.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/backdrops/IMG_20240314_114826123.webp">
 
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
 
@@ -44,7 +43,6 @@ body {
 
 /* Images */
 img { user-drag:none; -webkit-user-drag:none; pointer-events:none; }
-.photo-grid a img { pointer-events: auto; } /* Re-enable clicking for gallery images */
 
 /* Header */
 header {
@@ -57,7 +55,7 @@ header {
   background-color: var(--raisin-black);
   z-index: 1000;
 }
-header img { height: 50px; pointer-events: auto; }
+header img { height: 50px; }
 
 nav { display: flex; align-items: center; }
 nav a {
@@ -116,19 +114,6 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
   border-radius: 0;
 }
 
-/* Specific section backgrounds and spacing */
-#photos-section {
-  background-color: var(--silver);
-  padding-top: 140px;
-}
-#videos-section {
-  background-color: var(--brunswick-green);
-  color: var(--silver);
-}
-#cyber-section {
-  background-color: var(--silver);
-}
-
 /* Headings & text */
 .section h2 {
   font-family: 'Dela Gothic One', sans-serif;
@@ -136,8 +121,6 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
   font-size: 2.2rem;
   color: var(--brunswick-green);
 }
-#videos-section .section h2 { color: var(--silver); }
-.section p { font-size: 1.1rem; max-width: 900px; margin: 0 auto; line-height: 1.8; color: inherit; }
 
 /* Photo grid */
 .photo-grid {
@@ -155,33 +138,6 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
 }
 .photo-grid img:hover { transform: scale(1.03); }
 
-/* Video placeholder */
-.video-placeholder {
-  width: 80%;
-  max-width: 900px;
-  height: 420px;
-  margin: 1.5rem auto 0;
-  background-color: rgba(0,0,0,0.45);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius: 12px;
-  color: rgba(255,255,255,0.85);
-  font-weight: 600;
-}
-
-/* Cyber features list */
-.cyber-list {
-  margin-top: 1rem;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  line-height: 1.6;
-  font-weight: 500;
-  color: var(--dim-gray);
-}
-
 /* Wave divider */
 .wave {
   width: 100%;
@@ -190,10 +146,6 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
 }
 .wave svg { display:block; width:100%; height:150px; }
 .wave.wave--to-videos { color: var(--brunswick-green); }
-.wave.wave--to-cyber { color: var(--silver); }
-
-/* Feature cards */
-.section-card { background-color: var(--silver); padding: 2rem; border-radius: 12px; }
 
 /* Footer */
 footer {
@@ -209,33 +161,34 @@ footer {
   nav { display: none; }
   .hamburger { display: block; }
   .section { padding: 3.5rem 5%; }
-  #photos-section { padding-top: 160px; }
 }
 </style>
 </head>
 <body>
 
 <header id="header">
-  <img src="/media/RabsLabsFBO.png" alt="Logo">
+  <a href="/"><img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo"></a>
   <nav>
-    <a href="https://www.rabslabs.xyz">Home</a>
-    <a href="https://www.rabslabs.xyz/projects">Projects</a>
-    <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
-    <a href="https://www.rabslabs.xyz/links">Links</a>
+    <a href="/">Home</a>
+    <a href="/projects">Projects</a>
+    <a href="/status">Status</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/links">Links</a>
   </nav>
 
   <label class="hamburger">
     <input type="checkbox">
-    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 32 32">
       <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
       <path class="line" d="M7 16 27 16"></path>
     </svg>
 
-    <div class="mobile-menu" aria-hidden="true">
-      <a href="https://www.rabslabs.xyz">Home</a>
-      <a href="https://www.rabslabs.xyz/projects">Projects</a>
-      <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
-      <a href="https://www.rabslabs.xyz/links">Links</a>
+    <div class="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/status">Status</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/links">Links</a>
     </div>
   </label>
 </header>
@@ -243,65 +196,65 @@ footer {
 <section id="photos" class="photo-gallery" style="padding-top: 150px;">
   <h2 style="font-family: 'Dela Gothic One', cursive; color: #004643; text-align: center;">Photography</h2>
   <p style="text-align: center; max-width: 900px; margin: 0 auto 40px auto;">
-    A visual collection capturing cars, landscapes, and everyday details with sharp color and mood-driven framing. These shots reflect my hands-on technical and creative side.
+    A visual collection capturing cars, landscapes, and everyday details with sharp color and mood-driven framing.
   </p>
   <div class="photo-grid" style="padding: 0 20px;">
-    <a href="/portfolio/photography/20221127_125650.jpg" target="_blank">
-      <img src="/portfolio/photography/20221127_125650.webp" alt="Photo 1" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20221127_125650.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20221127_125650.webp" alt="Photo 1">
     </a>
-    <a href="/portfolio/photography/20230409_175717.jpg" target="_blank">
-      <img src="/portfolio/photography/20230409_175717.webp" alt="Photo 2" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20230409_175717.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20230409_175717.webp" alt="Photo 2">
     </a>
-    <a href="/portfolio/photography/20230409_175813.jpg" target="_blank">
-      <img src="/portfolio/photography/20230409_175813.webp" alt="Photo 3" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20230409_175813.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20230409_175813.webp" alt="Photo 3">
     </a>
-    <a href="/portfolio/photography/20230608_194237.jpg" target="_blank">
-      <img src="/portfolio/photography/20230608_194237.webp" alt="Photo 4" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20230608_194237.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20230608_194237.webp" alt="Photo 4">
     </a>
-    <a href="/portfolio/photography/20230608_194427.jpg" target="_blank">
-      <img src="/portfolio/photography/20230608_194427.webp" alt="Photo 5" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20230608_194427.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20230608_194427.webp" alt="Photo 5">
     </a>
-    <a href="/portfolio/photography/20240821_070554.jpg" target="_blank">
-      <img src="/portfolio/photography/20240821_070554.webp" alt="Photo 6" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20240821_070554.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20240821_070554.webp" alt="Photo 6">
     </a>
-    <a href="/portfolio/photography/20241011_184641-EFFECTS.jpg" target="_blank">
-      <img src="/portfolio/photography/20241011_184641-EFFECTS.webp" alt="Photo 7" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20241011_184641-EFFECTS.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20241011_184641-EFFECTS.webp" alt="Photo 7">
     </a>
-    <a href="/portfolio/photography/20250725_144720.jpg" target="_blank">
-      <img src="/portfolio/photography/20250725_144720.webp" alt="Photo 8" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20250725_144720.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20250725_144720.webp" alt="Photo 8">
     </a>
-    <a href="/portfolio/photography/20250828_200202-2.jpg" target="_blank">
-      <img src="/portfolio/photography/20250828_200202-2.webp" alt="Photo 9" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20250828_200202-2.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/20250828_200202-2.webp" alt="Photo 9">
     </a>
-    <a href="/portfolio/photography/HNI_0075.jpg" target="_blank">
-      <img src="/portfolio/photography/HNI_0075.webp" alt="Photo 10" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/HNI_0075.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/HNI_0075.webp" alt="Photo 10">
     </a>
-    <a href="/portfolio/photography/IMG_1322.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_1322.webp" alt="Photo 11" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_1322.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_1322.webp" alt="Photo 11">
     </a>
-    <a href="/portfolio/photography/IMG_20240123_210849417.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_20240123_210849417.webp" alt="Photo 12" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240123_210849417.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240123_210849417.webp" alt="Photo 12">
     </a>
-    <a href="/portfolio/photography/IMG_20240314_110541237.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_20240314_110541237.webp" alt="Photo 13" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_110541237.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_110541237.webp" alt="Photo 13">
     </a>
-    <a href="/portfolio/photography/IMG_20240314_114825065.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_20240314_114825065.webp" alt="Photo 14" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_114825065.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_114825065.webp" alt="Photo 14">
     </a>
-    <a href="/portfolio/photography/IMG_20240314_115004881.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_20240314_115004881.webp" alt="Photo 15" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_115004881.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_115004881.webp" alt="Photo 15">
     </a>
-    <a href="/portfolio/photography/IMG_20240314_115006976.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_20240314_115006976.webp" alt="Photo 16" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_115006976.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_115006976.webp" alt="Photo 16">
     </a>
-    <a href="/portfolio/photography/IMG_20240314_115247152.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_20240314_115247152.webp" alt="Photo 17" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_115247152.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_115247152.webp" alt="Photo 17">
     </a>
-    <a href="/portfolio/photography/IMG_20240314_132343552.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_20240314_132343552.webp" alt="Photo 18" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_132343552.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_20240314_132343552.webp" alt="Photo 18">
     </a>
-    <a href="/portfolio/photography/IMG_2467.jpg" target="_blank">
-      <img src="/portfolio/photography/IMG_2467.webp" alt="Photo 19" loading="lazy">
+    <a href="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_2467.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/Rabbibo/rabbibo.github.io/raw/main/portfolio/photography/IMG_2467.webp" alt="Photo 19">
     </a>
   </div>
 </section>
@@ -314,8 +267,7 @@ footer {
 
 <section id="video-section" class="section" style="background-color:#004643; color:#fff;">
   <h2 style="color:#bfb5af;">Video Projects</h2>
-  <p>A collection of my videography, editing, and cinematic work, demonstrating composition, lighting, and storytelling techniques.</p>
-
+  <p>A collection of my videography, editing, and cinematic work.</p>
   <div class="video-list" style="margin-top:20px;">
     <p style="font-style:italic; color:#bfb5af;">Currently, there is nothing to showcase here.</p>
   </div>
@@ -329,22 +281,19 @@ footer {
 
 <section id="cyber-section" class="section">
   <h2>Cyber Projects</h2>
-  <p>I work within networking, server configuration, and virtualization — managing environments across VMs, Jellyfin, and web hosting. Practical setup and maintenance of DNS, containers/VMs, secure routing, and media services are part of the daily routine.</p>
-
+  <p>I work within networking, server configuration, and virtualization.</p>
   <div class="cyber-list">
     <p><strong>Highlights:</strong></p>
     <ul>
-      <li>Home-lab servers and virtualization (VMs, Proxmox/TrueNAS style setups)</li>
-      <li>Media serving & streaming (Jellyfin), backups, and user data migration</li>
-      <li>Networking fundamentals, DNS, routing, and firewall basics</li>
-      <li>HTML & web hosting for personal/subdomain projects</li>
-      <li>Certs & knowledge areas: Networking+ and Cybersecurity+ level concepts</li>
+      <li>Home-lab servers and virtualization</li>
+      <li>Media serving & streaming (Jellyfin)</li>
+      <li>Networking fundamentals, DNS, and routing</li>
     </ul>
   </div>
 </section>
 
 <footer>
-  &copy; 2025 Rab's Labs Inc. All rights reserved.
+  &copy; 2026 Rab's Labs Inc. All rights reserved.
 </footer>
 
 </body>
