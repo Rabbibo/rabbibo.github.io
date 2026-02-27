@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Links - Rab's Labs</title>
+
+<link rel="icon" href="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" type="image/png">
+
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --brunswick-green: #004643;
+  --pomp-and-power: #706993;
+  --silver: #bfb5af;
+  --dim-gray: #6d6569;
+  --raisin-black: #1a1423;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Nanum Gothic", Arial, sans-serif;
+  background-color: var(--silver);
+  color: var(--raisin-black);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: var(--raisin-black);
+  z-index: 1000;
+}
+header img { height: 50px; }
+
+nav { display: flex; align-items: center; }
+nav a {
+  color: var(--silver);
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 2rem;
+  transition: all 0.3s;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
+nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); border-radius:10px; }
+
+/* Hamburger Menu (Mobile) */
+.hamburger { cursor: pointer; display: none; margin-left: 1rem; }
+.hamburger input { display: none; }
+.hamburger svg { height: 3em; transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1); }
+.line { fill: none; stroke: var(--brunswick-green); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; transition: stroke-dasharray 600ms; }
+.line-top-bottom { stroke-dasharray: 12 63; }
+.hamburger input:checked + svg { transform: rotate(-45deg); }
+.hamburger input:checked + svg .line-top-bottom { stroke-dasharray: 20 300; stroke-dashoffset: -32.42; }
+
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: var(--brunswick-green);
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+.mobile-menu a { color: var(--silver); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+.hamburger input:checked ~ .mobile-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+/* Hero */
+.hero {
+  padding-top: 150px;
+  padding-bottom: 4rem;
+  text-align: center;
+  background-color: var(--silver);
+}
+.hero h1 { font-family: 'Dela Gothic One', sans-serif; font-size: 3.5rem; color: var(--brunswick-green); margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+/* Content Section */
+.links-section {
+  background-color: var(--brunswick-green);
+  padding: 4rem 5%;
+  color: var(--silver);
+}
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.link-card {
+  background-color: var(--silver);
+  color: var(--raisin-black);
+  padding: 2.5rem;
+  border-radius: 15px;
+  text-align: left;
+  transition: transform 0.3s;
+}
+.link-card:hover { transform: translateY(-10px); }
+.link-card h2 { font-family: 'Dela Gothic One', sans-serif; color: var(--brunswick-green); margin-bottom: 1rem; }
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.btn-row:last-child { border-bottom: none; }
+.btn-row p { font-weight: 700; }
+
+button {
+  background-color: var(--brunswick-green);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button:hover { background-color: var(--pomp-and-power); transform: scale(1.05); }
+
+/* Wave */
+.wave { line-height: 0; background-color: var(--silver); }
+.wave svg { width: 100%; height: 100px; }
+
+footer { text-align: center; padding: 2rem; background-color: var(--raisin-black); color: var(--silver); }
+
+@media (max-width: 900px) {
+  nav { display: none; }
+  .hamburger { display: block; }
+  .hero h1 { font-size: 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
+  <nav>
+    <a href="/">Home</a>
+    <a href="https://www.rabslabs.xyz/projects">Projects</a>
+    <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
+    <a href="https://www.rabslabs.xyz/links">Links</a>
+  </nav>
+
+  <label class="hamburger">
+    <input type="checkbox">
+    <svg viewBox="0 0 32 32">
+      <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+      <path class="line" d="M7 16 27 16"></path>
+    </svg>
+    <div class="mobile-menu">
+      <a href="/">Home</a>
+      <a href="https://www.rabslabs.xyz/projects">Projects</a>
+      <a href="https://www.rabslabs.xyz/portfolio">Portfolio</a>
+      <a href="https://www.rabslabs.xyz/links">Links</a>
+    </div>
+  </label>
+</header>
+
+<section class="hero">
+    <h1 id="links-title"></h1>
+    <p id="links-subtext"></p>
+</section>
+
+<div class="wave">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,64 C360,160 1080,0 1440,64 L1440,100 L0,100 Z" fill="#004643"></path>
+  </svg>
+</div>
+
+<section class="links-section">
+    <div class="links-grid">
+        
+        <div class="link-card">
+            <h2>The Hubs</h2>
+            <p>Direct access to my primary hosted services and dashboard.</p>
+            <div class="btn-row"><p>Status Page</p><button onclick="window.location.href='https://status.rabslabs.xyz'">Go</button></div>
+            <div class="btn-row"><p>Jellyfin</p><button onclick="window.location.href='https://jellyfin.rabslabs.xyz'">Go</button></div>
+            <div class="btn-row"><p>Rab's GitHub</p><button onclick="window.location.href='https://github.com/Rabbibo'">Go</button></div>
+        </div>
+
+        <div class="link-card">
+            <h2>Hosted Projects</h2>
+            <p>Websites and subdomains hosted here for friends and collaborators.</p>
+            <div class="btn-row"><p>GSF</p><button onclick="window.location.href='https://gsf.rabslabs.xyz'">Go</button></div>
+            <div class="btn-row"><p>Bean Studios</p><button onclick="window.location.href='https://bean.rabslabs.xyz'">Go</button></div>
+            <div class="btn-row"><p>TV3</p><button onclick="window.location.href='https://tv3.rabslabs.xyz'">Go</button></div>
+            <div class="btn-row"><p>M11AD</p><button onclick="window.location.href='https://m11ad.rabslabs.xyz'">Go</button></div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+  © 2025 Rab's Labs Inc. All rights reserved.
+</footer>
+
+<script>
+// Hero typing effect
+const titleText = "Quick Links";
+const subText = "Central access to all subdomains, hosted projects, and lab services.";
+let tIdx = 0;
+let sIdx = 0;
+
+function typeTitle() {
+  if(tIdx < titleText.length) {
+    document.getElementById("links-title").innerHTML += titleText.charAt(tIdx);
+    tIdx++;
+    setTimeout(typeTitle, 50);
+  } else {
+    typeSubtext();
+  }
+}
+
+function typeSubtext() {
+  if(sIdx < subText.length) {
+    document.getElementById("links-subtext").innerHTML += subText.charAt(sIdx);
+    sIdx++;
+    setTimeout(typeSubtext, 25);
+  }
+}
+
+window.onload = typeTitle;
+</script>
+
+</body>
+</html>
