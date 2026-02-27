@@ -305,10 +305,6 @@ footer {
 </footer>
 
 <script>
-/**
- * RELAY SCRIPT: Fetches from your Cloudflare-tunneled Kuma status page.
- * If the fetch fails, it assumes the Pi/Network is down.
- */
 const KUMA_ENDPOINT = "https://status.rabslabs.xyz/api/status-page/heartbeat/default";
 
 async function fetchStatus() {
@@ -317,13 +313,15 @@ async function fetchStatus() {
         if (!response.ok) throw new Error("Monitor Unreachable");
         
         const data = await response.json();
-        const heartbeats = data.heartbeatList;
+        const list = data.heartbeatList;
 
-        // updateUI(elementID, kumaObject)
-        // If your servers are in a different order in Kuma, 
-        // swap the numbers [1] and [2] below.
-        updateUI('d14ms', heartbeats[1]); 
-        updateUI('m11ad', heartbeats[2]);
+        /**
+         * Since Kuma returns an array of heartbeat history,
+         * we grab the very last item in the array [.length - 1] 
+         * to get the most recent status.
+         */
+        if (list["1"]) updateUI('d14ms', list["1"][list["1"].length - 1]); 
+        if (list["2"]) updateUI('m11ad', list["2"][list["2"].length - 1]);
 
     } catch (err) {
         console.warn("Status relay failure:", err);
@@ -331,13 +329,13 @@ async function fetchStatus() {
     }
 }
 
-function updateUI(id, statusObj) {
+function updateUI(id, latestHeartbeat) {
     const dot = document.getElementById(`dot-${id}`);
     const text = document.getElementById(`text-${id}`);
     const card = document.getElementById(`card-${id}`);
 
-    // status === 1 is 'UP' in Uptime Kuma
-    if (statusObj && statusObj.status === 1) {
+    // status === 1 is Online, 0 is Offline
+    if (latestHeartbeat && latestHeartbeat.status === 1) {
         dot.className = "status-indicator status-online";
         text.innerText = "Online";
         card.style.borderLeftColor = "var(--good-green)";
@@ -350,18 +348,14 @@ function updateUI(id, statusObj) {
 
 function triggerNetworkDown() {
     ['d14ms', 'm11ad'].forEach(id => {
-        const text = document.getElementById(`text-${id}`);
-        const dot = document.getElementById(`dot-${id}`);
-        const card = document.getElementById(`card-${id}`);
-        
-        if (text) text.innerText = "Network Down";
-        if (dot) dot.className = "status-indicator status-offline";
-        if (card) card.style.borderLeftColor = "var(--alert-red)";
+        document.getElementById(`text-${id}`).innerText = "Network Down";
+        document.getElementById(`dot-${id}`).className = "status-indicator status-offline";
+        document.getElementById(`card-${id}`).style.borderLeftColor = "var(--alert-red)";
     });
 }
 
 fetchStatus();
-setInterval(fetchStatus, 30000); // Refresh every 30 seconds
+setInterval(fetchStatus, 30000);
 </script>
 
 </body>
