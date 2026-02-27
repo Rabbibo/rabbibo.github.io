@@ -28,108 +28,120 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Navigation & Header (Universal Design) --- */
+/* --- Header & Matching Hamburger Menu --- */
 header {
   position: fixed;
   width: 100%;
-  background-color: var(--raisin-black);
-  padding: 1.5rem 5%;
-  z-index: 2000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 5%;
+  background-color: var(--raisin-black);
+  z-index: 1000;
 }
 header img { height: 50px; }
 
-.desktop-nav a {
+nav { display: flex; align-items: center; }
+
+nav a {
   color: var(--silver);
   text-decoration: none;
   font-weight: 700;
   margin-left: 2rem;
+  transition: all 0.3s;
   padding: 0.2em 0.5em;
   border-radius: 5px;
-  transition: 0.3s;
 }
-.desktop-nav a:hover { background-color: var(--pomp-and-power); border-radius:10px; }
+nav a:hover {
+  background-color: var(--pomp-and-power);
+  border-radius: 10px;
+}
 
-/* Hamburger Menu Icon */
+/* Hamburger CSS */
 .hamburger {
-  display: none;
-  flex-direction: column;
   cursor: pointer;
-  gap: 5px;
-  z-index: 3000;
+  display: none;
+  margin-left: 1rem;
 }
-.hamburger span { 
-  width: 30px; 
-  height: 3px; 
-  background-color: var(--silver); 
-  border-radius: 2px; 
-  transition: 0.3s;
+.hamburger input { display: none; }
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line {
+  fill: none;
+  stroke: var(--silver); /* Changed to silver for visibility against black header */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line-top-bottom { stroke-dasharray: 12 63; }
+.hamburger input:checked + svg { transform: rotate(-45deg); }
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
 }
 
-/* Mobile Nav Overlay (Slide-in) */
-.mobile-nav {
+/* Mobile Menu Overlay */
+.mobile-menu {
   position: fixed;
-  top: 0;
-  right: -100%;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--raisin-black);
+  top: 80px;
+  right: 20px;
+  background-color: var(--brunswick-green);
+  border-radius: 15px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  z-index: 2500;
-  transition: 0.5s ease-in-out;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
 }
-.mobile-nav.active { right: 0; }
-.mobile-nav a {
+.mobile-menu a {
   color: var(--silver);
-  font-size: 1.8rem;
-  font-family: 'Dela Gothic One', sans-serif;
   text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.hamburger input:checked ~ .mobile-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
-/* --- Page Hero --- */
+/* --- Page Content --- */
 .page-title { padding: 150px 5% 2rem; text-align: center; }
 .page-title h1 { font-family: 'Dela Gothic One', sans-serif; font-size: 3rem; color: var(--brunswick-green); }
 
-/* --- Status Cards --- */
 .status-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 5%; }
 .server-card { 
-  background: #fff; 
-  border-radius: 12px; 
-  padding: 2rem; 
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-  border-left: 5px solid var(--brunswick-green); 
-  transition: border-color 0.5s ease; 
+  background: #fff; border-radius: 12px; padding: 2rem; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 5px solid var(--brunswick-green); 
 }
-.status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; transition: background-color 0.5s ease; }
+.status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
 .status-online { background-color: var(--good-green); }
 .status-offline { background-color: var(--alert-red); }
 
-/* --- Wave Separator --- */
-.wave { line-height: 0; width: 100%; overflow: hidden; background-color: var(--silver); }
+.wave { line-height: 0; background-color: var(--silver); }
 .wave svg { display: block; width: 100%; height: 100px; }
 
-/* --- Media Feed --- */
 .media-section { background-color: var(--brunswick-green); padding: 4rem 5%; color: var(--silver); margin-top: -1px; }
 .media-list { max-width: 800px; margin: 2rem auto 0; }
 
 .media-item {
-  display: flex;
-  align-items: center;
+  display: flex; align-items: center;
   background: rgba(255,255,255,0.05);
-  margin-bottom: 1.5rem;
-  border-radius: 15px;
-  padding: 20px;
+  margin-bottom: 1.5rem; border-radius: 15px; padding: 20px;
   border: 1px solid rgba(255,255,255,0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-
-/* "Lift" Hover Effect */
 .media-item:hover {
   transform: translateY(-8px);
   background: rgba(255,255,255,0.12);
@@ -137,15 +149,14 @@ header img { height: 50px; }
   border-color: var(--pomp-and-power);
 }
 
-.media-poster { width: 90px; height: 135px; object-fit: cover; border-radius: 8px; margin-right: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+.media-poster { width: 90px; height: 135px; object-fit: cover; border-radius: 8px; margin-right: 25px; }
 .media-info h4 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
-.media-info p { font-size: 0.9rem; opacity: 0.7; }
 
 footer { text-align: center; padding: 2rem; background-color: var(--raisin-black); color: var(--silver); }
 
-@media (max-width: 768px) {
-  .desktop-nav { display: none; }
-  .hamburger { display: flex; }
+@media (max-width: 900px) {
+  nav { display: none; }
+  .hamburger { display: block; }
   .media-item { flex-direction: column; text-align: center; }
   .media-poster { margin-right: 0; margin-bottom: 15px; }
 }
@@ -153,27 +164,33 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 </head>
 <body>
 
-<header>
-    <a href="/"><img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Rab's Labs Logo"></a>
-    <nav class="desktop-nav">
-        <a href="/">Home</a>
-        <a href="/projects">Projects</a>
-        <a href="/status">Status</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/links">Links</a>
-    </nav>
-    <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-    </div>
-</header>
-
-<nav class="mobile-nav" id="mobile-nav">
+<header id="header">
+  <a href="/"><img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo"></a>
+  
+  <nav>
     <a href="/">Home</a>
     <a href="/projects">Projects</a>
     <a href="/status">Status</a>
     <a href="/portfolio">Portfolio</a>
     <a href="/links">Links</a>
-</nav>
+  </nav>
+
+  <label class="hamburger">
+    <input type="checkbox">
+    <svg viewBox="0 0 32 32">
+      <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+      <path class="line" d="M7 16 27 16"></path>
+    </svg>
+
+    <div class="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/status">Status</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/links">Links</a>
+    </div>
+  </label>
+</header>
 
 <div class="page-title">
     <h1>System Status</h1>
@@ -210,21 +227,6 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 const KUMA_API = "https://restless-frost-d48b.rabslabs.workers.dev/";
 const JELLY_API = "https://rapid-cake-1e6a.rabslabs.workers.dev/";
 
-/* --- Hamburger Logic --- */
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobile-nav');
-
-hamburger.addEventListener('click', () => {
-    mobileNav.classList.toggle('active');
-});
-
-document.querySelectorAll('.mobile-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileNav.classList.remove('active');
-    });
-});
-
-/* --- Status Tracking --- */
 async function fetchStatus() {
     try {
         const response = await fetch(KUMA_API);
@@ -236,30 +238,18 @@ async function fetchStatus() {
             const slug = mapping[id];
             if (heartbeats[id] && heartbeats[id].length > 0) {
                 const latest = heartbeats[id][heartbeats[id].length - 1];
-                updateCard(slug, latest.status);
+                const dot = document.getElementById(`dot-${slug}`);
+                const text = document.getElementById(`text-${slug}`);
+                const card = document.getElementById(`card-${slug}`);
+                const isOnline = (latest.status === 1);
+                dot.className = `status-indicator ${isOnline ? 'status-online' : 'status-offline'}`;
+                text.innerText = isOnline ? "Online" : "Offline";
+                card.style.borderLeftColor = isOnline ? "var(--good-green)" : "var(--alert-red)";
             }
         });
-    } catch (err) { setGlobalStatus("Connection Error"); }
+    } catch (err) { console.error(err); }
 }
 
-function updateCard(id, status) {
-    const dot = document.getElementById(`dot-${id}`);
-    const text = document.getElementById(`text-${id}`);
-    const card = document.getElementById(`card-${id}`);
-    const isOnline = (status === 1);
-
-    dot.className = `status-indicator ${isOnline ? 'status-online' : 'status-offline'}`;
-    text.innerText = isOnline ? "Online" : "Offline";
-    card.style.borderLeftColor = isOnline ? "var(--good-green)" : "var(--alert-red)";
-}
-
-function setGlobalStatus(msg) {
-    ['d14ms', 'm11ad'].forEach(id => {
-        document.getElementById(`text-${id}`).innerText = msg;
-    });
-}
-
-/* --- Jellyfin Media Feed --- */
 async function fetchJellyfin() {
     try {
         const res = await fetch(JELLY_API);
@@ -270,7 +260,6 @@ async function fetchJellyfin() {
         items.forEach(item => {
             const poster = `https://tv.rabslabs.xyz/Items/${item.Id}/Images/Primary?fillHeight=240&fillWidth=160&quality=90`;
             const year = item.ProductionYear ? ` • ${item.ProductionYear}` : "";
-            
             feed.innerHTML += `
                 <div class="media-item">
                     <img src="${poster}" class="media-poster" alt="${item.Name}">
@@ -283,10 +272,9 @@ async function fetchJellyfin() {
     } catch (err) { document.getElementById('jellyfin-feed').innerText = "Unable to reach media server."; }
 }
 
-// Initial fire
 fetchStatus();
 fetchJellyfin();
-setInterval(fetchStatus, 30000); // 30s heartbeat
+setInterval(fetchStatus, 30000);
 </script>
 
 </body>
