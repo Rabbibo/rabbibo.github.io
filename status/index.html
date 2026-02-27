@@ -67,7 +67,7 @@ nav a:hover { background-color: var(--pomp-and-power); border-radius: 10px; }
 }
 .line {
   fill: none;
-  stroke: var(--brunswick-green); /* Matched to homepage icon color */
+  stroke: var(--brunswick-green); 
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 3;
@@ -127,6 +127,12 @@ nav a:hover { background-color: var(--pomp-and-power); border-radius: 10px; }
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
   border-left: 5px solid var(--brunswick-green); 
   transition: border-color 0.5s ease; 
+}
+/* Updated Title Font */
+.server-card h3 {
+  font-family: 'Dela Gothic One', sans-serif;
+  color: var(--raisin-black);
+  margin-bottom: 0.5rem;
 }
 .status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
 .status-online { background-color: var(--good-green); }
@@ -206,10 +212,14 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
     <div id="card-d14ms" class="server-card">
         <h3>D14MS</h3>
         <p><span id="dot-d14ms" class="status-indicator"></span><strong>Status:</strong> <span id="text-d14ms">Connecting...</span></p>
+        <p><strong>Roles:</strong> Jellyfin, NAS</p>
+        <p style="margin-top:0.5rem;">The primary media powerhouse that hosts the entire Jellyfin library and handles centralized file storage.</p>
     </div>
     <div id="card-m11ad" class="server-card">
         <h3>M11AD</h3>
         <p><span id="dot-m11ad" class="status-indicator"></span><strong>Status:</strong> <span id="text-m11ad">Connecting...</span></p>
+        <p><strong>Roles:</strong> Homebridge, Home Assistant</p>
+        <p style="margin-top:0.5rem;">Dedicated to home automation and bridging smart devices within the network.</p>
     </div>
 </div>
 
