@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Status - Rab's Labs</title>
+
+<link rel="icon" href="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --brunswick-green: #004643;
+  --pomp-and-power: #706993;
+  --silver: #bfb5af;
+  --raisin-black: #1a1423;
+  --alert-red: #e74c3c;
+  --good-green: #2ecc71;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Nanum Gothic", Arial, sans-serif;
+  background-color: var(--silver);
+  color: var(--raisin-black);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: var(--raisin-black);
+  z-index: 1000;
+}
+header img { height: 50px; }
+nav a { color: var(--silver); text-decoration: none; font-weight: 700; margin-left: 2rem; transition: 0.3s; padding: 0.2em 0.5em; }
+nav a:hover { background-color: var(--pomp-and-power); border-radius:10px; }
+
+/* Status Cards */
+.page-title { padding: 150px 5% 2rem; text-align: center; }
+.page-title h1 { font-family: 'Dela Gothic One', sans-serif; font-size: 3rem; color: var(--brunswick-green); }
+
+.status-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 5%; }
+.server-card { background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 5px solid var(--brunswick-green); transition: border-color 0.5s ease; }
+.status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.status-online { background-color: var(--good-green); }
+.status-offline { background-color: var(--alert-red); }
+
+/* Jellyfin List */
+.media-section { background-color: var(--brunswick-green); padding: 4rem 5%; color: var(--silver); }
+.media-list { max-width: 800px; margin: 2rem auto 0; }
+.media-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.2s;
+}
+.media-item:hover { transform: translateX(10px); background: rgba(255,255,255,0.1); }
+.media-poster { width: 80px; height: 120px; object-fit: cover; border-radius: 6px; margin-right: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
+
+footer { text-align: center; padding: 2rem; background-color: var(--raisin-black); color: var(--silver); }
+
+@media (max-width: 600px) {
+  header nav { display: none; }
+  .media-item { flex-direction: column; text-align: center; }
+  .media-poster { margin-right: 0; margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
+  <nav>
+    <a href="/">Home</a>
+    <a href="/projects">Projects</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/links">Links</a>
+  </nav>
+</header>
+
+<div class="page-title">
+    <h1>System Status</h1>
+    <p>Live heartbeat from Waxahachie and recent D14MS library additions.</p>
+</div>
+
+<div class="status-container">
+    <div id="card-d14ms" class="server-card">
+        <h3>D14MS</h3>
+        <p><span id="dot-d14ms" class="status-indicator"></span><strong>Status:</strong> <span id="text-d14ms">Connecting...</span></p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--dim-gray);">Media & Storage Hub</p>
+    </div>
+
+    <div id="card-m11ad" class="server-card">
+        <h3>M11AD</h3>
+        <p><span id="dot-m11ad" class="status-indicator"></span><strong>Status:</strong> <span id="text-m11ad">Connecting...</span></p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--dim-gray);">Automation Bridge</p>
+    </div>
+</div>
+
+<section class="media-section">
+    <h2 style="font-family: 'Dela Gothic One'; text-align: center;">Recently Added to Jellyfin</h2>
+    <div id="jellyfin-feed" class="media-list">
+        <p style="text-align: center;">Synchronizing with media server...</p>
+    </div>
+</section>
+
+<footer>
+  © 2026 Rab's Labs Inc. All rights reserved.
+</footer>
+
+<script>
+const KUMA_API = "https://restless-frost-d48b.rabslabs.workers.dev/";
+const JELLY_API = "https://jellyfin-recent-proxy.rab.workers.dev/"; // CHANGE THIS TO YOUR WORKER URL
+
+async function fetchStatus() {
+    try {
+        const response = await fetch(KUMA_API);
+        const data = await response.json();
+        const heartbeats = data.heartbeatList;
+
+        ['1', '2'].forEach(id => {
+            const slug = id === '1' ? 'd14ms' : 'm11ad';
+            if (heartbeats[id] && heartbeats[id].length > 0) {
+                const latest = heartbeats[id][heartbeats[id].length - 1];
+                updateCard(slug, latest.status);
+            }
+        });
+    } catch (err) {
+        setGlobalStatus("Connection Error");
+    }
+}
+
+function updateCard(id, status) {
+    const dot = document.getElementById(`dot-${id}`);
+    const text = document.getElementById(`text-${id}`);
+    const card = document.getElementById(`card-${id}`);
+
+    if (status === 1) {
+        dot.className = "status-indicator status-online";
+        text.innerText = "Online";
+        card.style.borderLeftColor = "var(--good-green)";
+    } else {
+        dot.className = "status-indicator status-offline";
+        text.innerText = "Offline";
+        card.style.borderLeftColor = "var(--alert-red)";
+    }
+}
+
+function setGlobalStatus(msg) {
+    ['d14ms', 'm11ad'].forEach(id => {
+        document.getElementById(`text-${id}`).innerText = msg;
+    });
+}
+
+async function fetchJellyfin() {
+    try {
+        const res = await fetch(JELLY_API);
+        const items = await res.json();
+        const feed = document.getElementById('jellyfin-feed');
+        feed.innerHTML = '';
+
+        items.forEach(item => {
+            const poster = `https://tv.rabslabs.xyz/Items/${item.Id}/Images/Primary?fillHeight=240&fillWidth=160&quality=90`;
+            const typeLabel = item.Type === "Movie" ? "Movie" : "TV Series";
+            
+            feed.innerHTML += `
+                <div class="media-item">
+                    <img src="${poster}" class="media-poster" alt="${item.Name}">
+                    <div class="media-info">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 5px;">${item.Name}</h4>
+                        <p style="font-size: 0.8rem; color: #fff; opacity: 0.6;">${typeLabel} • Added to D14MS</p>
+                    </div>
+                </div>
+            `;
+        });
+    } catch (err) {
+        document.getElementById('jellyfin-feed').innerText = "Media server is currently unreachable.";
+    }
+}
+
+// Initial fire
+fetchStatus();
+fetchJellyfin();
+
+// Refresh every 30 seconds
+setInterval(fetchStatus, 30000);
+</script>
+
+</body>
+</html>
