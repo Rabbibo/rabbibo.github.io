@@ -76,7 +76,7 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
 
 /* Media Feed Section */
 .media-section { background-color: var(--brunswick-green); padding: 4rem 5%; color: var(--silver); margin-top: -1px; }
-.media-list { max-width: 900px; margin: 2rem auto 0; }
+.media-list { max-width: 800px; margin: 2rem auto 0; }
 
 .media-item {
   display: flex;
@@ -90,7 +90,7 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
   cursor: default;
 }
 
-/* The "Raise It Up" Hover Effect */
+/* Updated Lift Hover Effect */
 .media-item:hover {
   transform: translateY(-8px);
   background: rgba(255,255,255,0.12);
@@ -133,20 +133,18 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 
 <div class="page-title">
     <h1>System Status</h1>
-    <p>Live health metrics from Waxahachie and recent library expansions.</p>
+    <p>Server status and recently added media</p>
 </div>
 
 <div class="status-container">
     <div id="card-d14ms" class="server-card">
         <h3>D14MS</h3>
         <p><span id="dot-d14ms" class="status-indicator"></span><strong>Status:</strong> <span id="text-d14ms">Syncing...</span></p>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--dim-gray);">Primary Media Server</p>
     </div>
 
     <div id="card-m11ad" class="server-card">
         <h3>M11AD</h3>
         <p><span id="dot-m11ad" class="status-indicator"></span><strong>Status:</strong> <span id="text-m11ad">Syncing...</span></p>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--dim-gray);">Automation Bridge</p>
     </div>
 </div>
 
@@ -157,9 +155,9 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 </div>
 
 <section class="media-section">
-    <h2 style="font-family: 'Dela Gothic One'; text-align: center;">Recently Added to Jellyfin</h2>
+    <h2 style="font-family: 'Dela Gothic One'; text-align: center;">Library Activity</h2>
     <div id="jellyfin-feed" class="media-list">
-        <p style="text-align: center;">Scanning library on D14MS...</p>
+        <p style="text-align: center;">Scanning D14MS...</p>
     </div>
 </section>
 
@@ -195,11 +193,11 @@ function updateCard(id, status) {
     const text = document.getElementById(`text-${id}`);
     const card = document.getElementById(`card-${id}`);
 
-    if (status === 1) { // 1 = Online
+    if (status === 1) { 
         dot.className = "status-indicator status-online";
         text.innerText = "Online";
         card.style.borderLeftColor = "var(--good-green)";
-    } else { // 0 = Offline
+    } else { 
         dot.className = "status-indicator status-offline";
         text.innerText = "Offline";
         card.style.borderLeftColor = "var(--alert-red)";
@@ -218,19 +216,18 @@ async function fetchJellyfin() {
         const res = await fetch(JELLY_API);
         const items = await res.json();
         const feed = document.getElementById('jellyfin-feed');
-        feed.innerHTML = ''; // Clear loading text
+        feed.innerHTML = '';
 
         items.forEach(item => {
-            // High-res poster from proxied tunnel
             const poster = `https://tv.rabslabs.xyz/Items/${item.Id}/Images/Primary?fillHeight=270&fillWidth=180&quality=90`;
-            const label = item.Type === "Movie" ? "Movie" : "Series";
+            const year = item.ProductionYear ? ` • ${item.ProductionYear}` : "";
             
             feed.innerHTML += `
                 <div class="media-item">
                     <img src="${poster}" class="media-poster" alt="${item.Name}">
                     <div class="media-info">
                         <h4>${item.Name}</h4>
-                        <p>${label} • Added to Lab Storage</p>
+                        <p>New Release${year}</p>
                     </div>
                 </div>
             `;
@@ -240,10 +237,9 @@ async function fetchJellyfin() {
     }
 }
 
-// Startup
 fetchStatus();
 fetchJellyfin();
-setInterval(fetchStatus, 30000); // 30s heartbeat
+setInterval(fetchStatus, 30000);
 </script>
 
 </body>
