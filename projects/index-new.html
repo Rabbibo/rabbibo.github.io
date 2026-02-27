@@ -305,68 +305,62 @@ footer {
 </footer>
 
 <script>
-const KUMA_ENDPOINT = "https://status.rabslabs.xyz/api/status-page/heartbeat/default";
+const KUMA_API = "https://status.rabslabs.xyz/api/status-page/heartbeat/default";
 
 async function fetchStatus() {
     try {
-        const response = await fetch(KUMA_ENDPOINT);
-        if (!response.ok) throw new Error("Monitor Unreachable");
+        const response = await fetch(KUMA_API);
+        if (!response.ok) throw new Error("Connection failed");
         
         const data = await response.json();
-        const list = data.heartbeatList;
-        
-        console.log("Kuma Data Received:", list); // Debugging: See the data in F12 console
+        const heartbeats = data.heartbeatList;
 
-        // Grab the most recent heartbeat for each ID
-        // We check for "1" as a string to match your API data exactly
-        if (list["1"] && list["1"].length > 0) {
-            const latestD14MS = list["1"][list["1"].length - 1];
-            updateUI('d14ms', latestD14MS);
+        // D14MS (ID: 1)
+        if (heartbeats["1"] && heartbeats["1"].length > 0) {
+            const latest = heartbeats["1"][heartbeats["1"].length - 1];
+            updateCard('d14ms', latest.status);
         }
 
-        if (list["2"] && list["2"].length > 0) {
-            const latestM11AD = list["2"][list["2"].length - 1];
-            updateUI('m11ad', latestM11AD);
+        // M11AD (ID: 2)
+        if (heartbeats["2"] && heartbeats["2"].length > 0) {
+            const latest = heartbeats["2"][heartbeats["2"].length - 1];
+            updateCard('m11ad', latest.status);
         }
 
     } catch (err) {
-        console.warn("Status relay failure:", err);
-        triggerNetworkDown();
+        console.error("Network Error:", err);
+        setGlobalStatus("Network Down");
     }
 }
 
-function updateUI(id, latestHeartbeat) {
+function updateCard(id, status) {
     const dot = document.getElementById(`dot-${id}`);
     const text = document.getElementById(`text-${id}`);
     const card = document.getElementById(`card-${id}`);
 
-    if (!dot || !text || !card) return;
-
-    // Force check: status must be exactly 1 to be "Online"
-    if (latestHeartbeat && latestHeartbeat.status === 1) {
+    if (status === 1) { // 1 = Online
         dot.className = "status-indicator status-online";
         text.innerText = "Online";
         card.style.borderLeftColor = "var(--good-green)";
-    } else {
+    } else { // 0 = Offline
         dot.className = "status-indicator status-offline";
         text.innerText = "Offline";
         card.style.borderLeftColor = "var(--alert-red)";
     }
 }
 
-function triggerNetworkDown() {
+function setGlobalStatus(msg) {
     ['d14ms', 'm11ad'].forEach(id => {
         const text = document.getElementById(`text-${id}`);
         const dot = document.getElementById(`dot-${id}`);
         const card = document.getElementById(`card-${id}`);
-        
-        if (text) text.innerText = "Network Down";
+        if (text) text.innerText = msg;
         if (dot) dot.className = "status-indicator status-offline";
         if (card) card.style.borderLeftColor = "var(--alert-red)";
     });
 }
 
-// Initial fire and 30s interval
+// Start the engine
 fetchStatus();
 setInterval(fetchStatus, 30000);
 </script>
