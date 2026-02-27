@@ -124,6 +124,7 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border-left: 5px solid var(--brunswick-green);
+    transition: border-color 0.5s ease;
 }
 .server-card h3 {
     font-family: 'Dela Gothic One', sans-serif;
@@ -136,6 +137,7 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
     height: 10px;
     border-radius: 50%;
     margin-right: 5px;
+    transition: background-color 0.5s ease;
 }
 .status-online { background-color: var(--good-green); }
 .status-offline { background-color: var(--alert-red); }
@@ -181,30 +183,6 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
     background: rgba(255,255,255,0.15);
 }
 
-/* Keep this CSS class for when you add iframes later */
-.video-wrapper {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: #000;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 0.8rem;
-}
-.video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.ep-date {
-    display: block;
-    font-size: 0.8rem;
-    color: var(--silver);
-    margin-top: 0.5rem;
-    font-style: italic;
-}
-
-/* Wave Divider */
 .wave { width: 100%; overflow: hidden; line-height: 0; }
 .wave svg { display: block; width: 100%; height: 150px; }
 .wave-fill-green { fill: var(--brunswick-green); }
@@ -260,16 +238,16 @@ footer {
     <p>My personal playground for networking, virtualization, and service hosting. These systems run 24/7 to power Rab's Labs.</p>
     
     <div class="server-grid">
-        <div class="server-card">
+        <div id="card-d14ms" class="server-card">
             <h3>D14MS</h3>
-            <p><span class="status-indicator status-online"></span><strong>Status:</strong> Online</p>
+            <p><span id="dot-d14ms" class="status-indicator"></span><strong>Status:</strong> <span id="text-d14ms">Connecting...</span></p>
             <p><strong>Roles:</strong> Jellyfin, NAS</p>
             <p style="margin-top:1rem;">The primary media powerhouse. Hosts the entire Jellyfin library and handles centralized file storage.</p>
         </div>
 
-        <div class="server-card" style="border-left-color: var(--alert-red);">
+        <div id="card-m11ad" class="server-card">
             <h3>M11AD</h3>
-            <p><span class="status-indicator status-offline"></span><strong>Status:</strong> Offline</p>
+            <p><span id="dot-m11ad" class="status-indicator"></span><strong>Status:</strong> <span id="text-m11ad">Connecting...</span></p>
             <p><strong>Roles:</strong> Homebridge, Home Assistant</p>
             <p style="margin-top:1rem;">Dedicated to home automation and bridging smart devices. Currently undergoing maintenance.</p>
         </div>
@@ -286,10 +264,6 @@ footer {
     <div class="project-2015-container">
         <h2 style="font-family: 'Dela Gothic One', sans-serif; color: #fff; text-align: center; font-size: 2.5rem;">Project 2015</h2>
         
-        <p style="text-align: center; font-size: 1.1rem; margin-top: 1rem;">
-            A massive archival and restoration effort. 
-        </p>
-
         <ul class="route-list">
             <li class="route-item"><span>Texas</span> →</li>
             <li class="route-item"><span>New Mexico</span> →</li>
@@ -309,45 +283,18 @@ footer {
                 In 2015, four adults embarked on a cross-country road trip spanning the American West. 
                 Ten years later, I am piecing together their journey. 
             </p>
-            <br>
-            <p>
-                <strong>The Challenge:</strong> I wasn't there. I am editing this story a decade later, relying entirely on the raw footage they left behind to reconstruct the narrative, the humor, and the memories of that summer.
-            </p>
         </div>
 
         <div style="margin-top: 3rem; text-align: center;">
             <h3 style="color: #fff;">Episodes</h3>
-            <p style="font-style: italic; opacity: 0.8; margin-top: 1rem;">Daily vlogs from September 12th to 18th, 2015.</p>
-            
             <div class="episode-grid">
-                <div class="episode-card">
-                    <h4>Episode 1</h4>
-                    <span class="ep-date">Sept 12, 2015</span>
-                </div>
-                <div class="episode-card">
-                    <h4>Episode 2</h4>
-                    <span class="ep-date">Sept 13, 2015</span>
-                </div>
-                <div class="episode-card">
-                    <h4>Episode 3</h4>
-                    <span class="ep-date">Sept 14, 2015</span>
-                </div>
-                <div class="episode-card">
-                    <h4>Episode 4</h4>
-                    <span class="ep-date">Sept 15, 2015</span>
-                </div>
-                <div class="episode-card">
-                    <h4>Episode 5</h4>
-                    <span class="ep-date">Sept 16, 2015</span>
-                </div>
-                <div class="episode-card">
-                    <h4>Episode 6</h4>
-                    <span class="ep-date">Sept 17, 2015</span>
-                </div>
-                <div class="episode-card">
-                    <h4>Episode 7</h4>
-                    <span class="ep-date">Sept 18, 2015</span>
-                </div>
+                <div class="episode-card"><h4>Episode 1</h4><span class="ep-date">Sept 12, 2015</span></div>
+                <div class="episode-card"><h4>Episode 2</h4><span class="ep-date">Sept 13, 2015</span></div>
+                <div class="episode-card"><h4>Episode 3</h4><span class="ep-date">Sept 14, 2015</span></div>
+                <div class="episode-card"><h4>Episode 4</h4><span class="ep-date">Sept 15, 2015</span></div>
+                <div class="episode-card"><h4>Episode 5</h4><span class="ep-date">Sept 16, 2015</span></div>
+                <div class="episode-card"><h4>Episode 6</h4><span class="ep-date">Sept 17, 2015</span></div>
+                <div class="episode-card"><h4>Episode 7</h4><span class="ep-date">Sept 18, 2015</span></div>
             </div>
         </div>
     </div>
@@ -356,6 +303,67 @@ footer {
 <footer>
   © 2025 Rab's Labs Inc. All rights reserved.
 </footer>
+
+<script>
+const KUMA_API = "https://restless-frost-d48b.rabslabs.workers.dev/";
+
+async function fetchStatus() {
+    try {
+        const response = await fetch(KUMA_API);
+        if (!response.ok) throw new Error("Connection failed");
+        
+        const data = await response.json();
+        const heartbeats = data.heartbeatList;
+
+        // D14MS (ID: 1)
+        if (heartbeats["1"] && heartbeats["1"].length > 0) {
+            const latest = heartbeats["1"][heartbeats["1"].length - 1];
+            updateCard('d14ms', latest.status);
+        }
+
+        // M11AD (ID: 2)
+        if (heartbeats["2"] && heartbeats["2"].length > 0) {
+            const latest = heartbeats["2"][heartbeats["2"].length - 1];
+            updateCard('m11ad', latest.status);
+        }
+
+    } catch (err) {
+        console.error("Network Error:", err);
+        setGlobalStatus("Network Down");
+    }
+}
+
+function updateCard(id, status) {
+    const dot = document.getElementById(`dot-${id}`);
+    const text = document.getElementById(`text-${id}`);
+    const card = document.getElementById(`card-${id}`);
+
+    if (status === 1) { // 1 = Online
+        dot.className = "status-indicator status-online";
+        text.innerText = "Online";
+        card.style.borderLeftColor = "var(--good-green)";
+    } else { // 0 = Offline
+        dot.className = "status-indicator status-offline";
+        text.innerText = "Offline";
+        card.style.borderLeftColor = "var(--alert-red)";
+    }
+}
+
+function setGlobalStatus(msg) {
+    ['d14ms', 'm11ad'].forEach(id => {
+        const text = document.getElementById(`text-${id}`);
+        const dot = document.getElementById(`dot-${id}`);
+        const card = document.getElementById(`card-${id}`);
+        if (text) text.innerText = msg;
+        if (dot) dot.className = "status-indicator status-offline";
+        if (card) card.style.borderLeftColor = "var(--alert-red)";
+    });
+}
+
+// Start the engine
+fetchStatus();
+setInterval(fetchStatus, 30000);
+</script>
 
 </body>
 </html>
