@@ -28,69 +28,90 @@ body {
   overflow-x: hidden;
 }
 
-/* Header */
+/* Universal Header & Navigation */
 header {
   position: fixed;
   width: 100%;
+  background-color: var(--raisin-black);
+  padding: 1rem 5%;
+  z-index: 2000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 5%;
-  background-color: var(--raisin-black);
-  z-index: 1000;
 }
-header img { height: 50px; }
+header img { height: 45px; }
 
-nav a {
+.desktop-nav a {
   color: var(--silver);
   text-decoration: none;
   font-weight: 700;
-  margin-left: 2rem;
-  transition: all 0.3s;
-  padding: 0.2em 0.5em;
-  border-radius: 5px;
+  margin-left: 1.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  transition: 0.3s;
 }
-nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); border-radius:10px; }
+.desktop-nav a:hover { background-color: var(--pomp-and-power); }
 
-/* Hero/Page Title */
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 3000;
+}
+.hamburger span { width: 25px; height: 3px; background-color: var(--silver); border-radius: 2px; }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--raisin-black);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2500;
+}
+.mobile-nav.active { display: flex; }
+.mobile-nav a {
+  color: var(--silver);
+  font-size: 1.5rem;
+  font-family: 'Dela Gothic One', sans-serif;
+  text-decoration: none;
+}
+
+/* Page Content */
 .page-title { padding: 150px 5% 2rem; text-align: center; }
 .page-title h1 { font-family: 'Dela Gothic One', sans-serif; font-size: 3rem; color: var(--brunswick-green); }
 
-/* Server Health Grid */
 .status-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 5%; }
 .server-card { 
-  background: #fff; 
-  border-radius: 12px; 
-  padding: 2rem; 
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-  border-left: 5px solid var(--brunswick-green); 
-  transition: border-color 0.5s ease; 
+  background: #fff; border-radius: 12px; padding: 2rem; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 5px solid var(--brunswick-green); 
 }
-.status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; transition: background-color 0.5s ease; }
+
+.status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
 .status-online { background-color: var(--good-green); }
 .status-offline { background-color: var(--alert-red); }
 
-/* Wave Separator */
-.wave { line-height: 0; width: 100%; overflow: hidden; background-color: var(--silver); }
-.wave svg { display: block; width: 100%; height: 100px; }
+/* Wave & Media Feed */
+.wave { line-height: 0; background-color: var(--silver); }
+.wave svg { display: block; width: 100%; height: 80px; }
 
-/* Media Feed Section */
 .media-section { background-color: var(--brunswick-green); padding: 4rem 5%; color: var(--silver); margin-top: -1px; }
 .media-list { max-width: 800px; margin: 2rem auto 0; }
 
 .media-item {
-  display: flex;
-  align-items: center;
+  display: flex; align-items: center;
   background: rgba(255,255,255,0.05);
-  margin-bottom: 1.5rem;
-  border-radius: 15px;
-  padding: 20px;
+  margin-bottom: 1.5rem; border-radius: 15px; padding: 20px;
   border: 1px solid rgba(255,255,255,0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  cursor: default;
 }
-
-/* Updated Lift Hover Effect */
 .media-item:hover {
   transform: translateY(-8px);
   background: rgba(255,255,255,0.12);
@@ -98,22 +119,14 @@ nav a:hover { background-color: var(--pomp-and-power); color: var(--silver); bor
   border-color: var(--pomp-and-power);
 }
 
-.media-poster {
-  width: 90px;
-  height: 135px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-right: 25px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
+.media-poster { width: 80px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px; }
 .media-info h4 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
-.media-info p { font-size: 0.9rem; opacity: 0.7; }
 
 footer { text-align: center; padding: 2rem; background-color: var(--raisin-black); color: var(--silver); }
 
-@media (max-width: 600px) {
-  nav { display: none; }
+@media (max-width: 768px) {
+  .desktop-nav { display: none; }
+  .hamburger { display: flex; }
   .media-item { flex-direction: column; text-align: center; }
   .media-poster { margin-right: 0; margin-bottom: 15px; }
 }
@@ -122,14 +135,26 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 <body>
 
 <header>
-  <img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo">
-  <nav>
+    <a href="/"><img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo"></a>
+    <nav class="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/status">Status</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/links">Links</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
     <a href="/">Home</a>
     <a href="/projects">Projects</a>
+    <a href="/status">Status</a>
     <a href="/portfolio">Portfolio</a>
     <a href="/links">Links</a>
-  </nav>
-</header>
+</nav>
 
 <div class="page-title">
     <h1>System Status</h1>
@@ -141,7 +166,6 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
         <h3>D14MS</h3>
         <p><span id="dot-d14ms" class="status-indicator"></span><strong>Status:</strong> <span id="text-d14ms">Syncing...</span></p>
     </div>
-
     <div id="card-m11ad" class="server-card">
         <h3>M11AD</h3>
         <p><span id="dot-m11ad" class="status-indicator"></span><strong>Status:</strong> <span id="text-m11ad">Syncing...</span></p>
@@ -149,9 +173,7 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 </div>
 
 <div class="wave">
-  <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-    <path d="M0,64 C360,160 1080,0 1440,64 L1440,150 L0,150 Z" fill="var(--brunswick-green)"></path>
-  </svg>
+  <svg viewBox="0 0 1440 150" preserveAspectRatio="none"><path d="M0,64 C360,160 1080,0 1440,64 L1440,150 L0,150 Z" fill="var(--brunswick-green)"></path></svg>
 </div>
 
 <section class="media-section">
@@ -161,54 +183,37 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
     </div>
 </section>
 
-<footer>
-  © 2026 Rab's Labs Inc. All rights reserved.
-</footer>
+<footer>© 2026 Rab's Labs Inc. All rights reserved.</footer>
 
 <script>
 const KUMA_API = "https://restless-frost-d48b.rabslabs.workers.dev/";
 const JELLY_API = "https://rapid-cake-1e6a.rabslabs.workers.dev/";
+
+// Hamburger Logic
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+hamburger.onclick = () => mobileNav.classList.toggle('active');
+mobileNav.onclick = () => mobileNav.classList.remove('active');
 
 async function fetchStatus() {
     try {
         const response = await fetch(KUMA_API);
         const data = await response.json();
         const heartbeats = data.heartbeatList;
-
         const mapping = { '1': 'd14ms', '2': 'm11ad' };
         Object.keys(mapping).forEach(id => {
-            const slug = mapping[id];
-            if (heartbeats[id] && heartbeats[id].length > 0) {
+            if (heartbeats[id]) {
                 const latest = heartbeats[id][heartbeats[id].length - 1];
-                updateCard(slug, latest.status);
+                const dot = document.getElementById(`dot-${mapping[id]}`);
+                const text = document.getElementById(`text-${mapping[id]}`);
+                const card = document.getElementById(`card-${mapping[id]}`);
+                const online = latest.status === 1;
+                dot.className = `status-indicator ${online ? 'status-online' : 'status-offline'}`;
+                text.innerText = online ? "Online" : "Offline";
+                card.style.borderLeftColor = online ? "var(--good-green)" : "var(--alert-red)";
             }
         });
-    } catch (err) {
-        setGlobalStatus("Connection Error");
-    }
-}
-
-function updateCard(id, status) {
-    const dot = document.getElementById(`dot-${id}`);
-    const text = document.getElementById(`text-${id}`);
-    const card = document.getElementById(`card-${id}`);
-
-    if (status === 1) { 
-        dot.className = "status-indicator status-online";
-        text.innerText = "Online";
-        card.style.borderLeftColor = "var(--good-green)";
-    } else { 
-        dot.className = "status-indicator status-offline";
-        text.innerText = "Offline";
-        card.style.borderLeftColor = "var(--alert-red)";
-    }
-}
-
-function setGlobalStatus(msg) {
-    ['d14ms', 'm11ad'].forEach(id => {
-        const el = document.getElementById(`text-${id}`);
-        if (el) el.innerText = msg;
-    });
+    } catch (err) { console.error("Status error", err); }
 }
 
 async function fetchJellyfin() {
@@ -217,11 +222,9 @@ async function fetchJellyfin() {
         const items = await res.json();
         const feed = document.getElementById('jellyfin-feed');
         feed.innerHTML = '';
-
         items.forEach(item => {
-            const poster = `https://tv.rabslabs.xyz/Items/${item.Id}/Images/Primary?fillHeight=270&fillWidth=180&quality=90`;
+            const poster = `https://tv.rabslabs.xyz/Items/${item.Id}/Images/Primary?fillHeight=240&fillWidth=160&quality=90`;
             const year = item.ProductionYear ? ` • ${item.ProductionYear}` : "";
-            
             feed.innerHTML += `
                 <div class="media-item">
                     <img src="${poster}" class="media-poster" alt="${item.Name}">
@@ -229,18 +232,14 @@ async function fetchJellyfin() {
                         <h4>${item.Name}</h4>
                         <p>New Release${year}</p>
                     </div>
-                </div>
-            `;
+                </div>`;
         });
-    } catch (err) {
-        document.getElementById('jellyfin-feed').innerText = "Unable to reach media server.";
-    }
+    } catch (err) { feed.innerText = "Unable to reach media server."; }
 }
 
 fetchStatus();
 fetchJellyfin();
 setInterval(fetchStatus, 30000);
 </script>
-
 </body>
 </html>
