@@ -28,31 +28,31 @@ body {
   overflow-x: hidden;
 }
 
-/* Universal Header & Navigation */
+/* --- Navigation & Header (Universal Design) --- */
 header {
   position: fixed;
   width: 100%;
   background-color: var(--raisin-black);
-  padding: 1rem 5%;
+  padding: 1.5rem 5%;
   z-index: 2000;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header img { height: 45px; }
+header img { height: 50px; }
 
 .desktop-nav a {
   color: var(--silver);
   text-decoration: none;
   font-weight: 700;
-  margin-left: 1.5rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
+  margin-left: 2rem;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
   transition: 0.3s;
 }
-.desktop-nav a:hover { background-color: var(--pomp-and-power); }
+.desktop-nav a:hover { background-color: var(--pomp-and-power); border-radius:10px; }
 
-/* Hamburger Menu */
+/* Hamburger Menu Icon */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -60,58 +60,76 @@ header img { height: 45px; }
   gap: 5px;
   z-index: 3000;
 }
-.hamburger span { width: 25px; height: 3px; background-color: var(--silver); border-radius: 2px; }
+.hamburger span { 
+  width: 30px; 
+  height: 3px; 
+  background-color: var(--silver); 
+  border-radius: 2px; 
+  transition: 0.3s;
+}
 
+/* Mobile Nav Overlay (Slide-in) */
 .mobile-nav {
-  display: none;
   position: fixed;
   top: 0;
-  right: 0;
+  right: -100%;
   width: 100%;
   height: 100vh;
   background-color: var(--raisin-black);
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   z-index: 2500;
+  transition: 0.5s ease-in-out;
 }
-.mobile-nav.active { display: flex; }
+.mobile-nav.active { right: 0; }
 .mobile-nav a {
   color: var(--silver);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-family: 'Dela Gothic One', sans-serif;
   text-decoration: none;
 }
 
-/* Page Content */
+/* --- Page Hero --- */
 .page-title { padding: 150px 5% 2rem; text-align: center; }
 .page-title h1 { font-family: 'Dela Gothic One', sans-serif; font-size: 3rem; color: var(--brunswick-green); }
 
+/* --- Status Cards --- */
 .status-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 5%; }
 .server-card { 
-  background: #fff; border-radius: 12px; padding: 2rem; 
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 5px solid var(--brunswick-green); 
+  background: #fff; 
+  border-radius: 12px; 
+  padding: 2rem; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+  border-left: 5px solid var(--brunswick-green); 
+  transition: border-color 0.5s ease; 
 }
-
-.status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; transition: background-color 0.5s ease; }
 .status-online { background-color: var(--good-green); }
 .status-offline { background-color: var(--alert-red); }
 
-/* Wave & Media Feed */
-.wave { line-height: 0; background-color: var(--silver); }
-.wave svg { display: block; width: 100%; height: 80px; }
+/* --- Wave Separator --- */
+.wave { line-height: 0; width: 100%; overflow: hidden; background-color: var(--silver); }
+.wave svg { display: block; width: 100%; height: 100px; }
 
+/* --- Media Feed --- */
 .media-section { background-color: var(--brunswick-green); padding: 4rem 5%; color: var(--silver); margin-top: -1px; }
 .media-list { max-width: 800px; margin: 2rem auto 0; }
 
 .media-item {
-  display: flex; align-items: center;
+  display: flex;
+  align-items: center;
   background: rgba(255,255,255,0.05);
-  margin-bottom: 1.5rem; border-radius: 15px; padding: 20px;
+  margin-bottom: 1.5rem;
+  border-radius: 15px;
+  padding: 20px;
   border: 1px solid rgba(255,255,255,0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+/* "Lift" Hover Effect */
 .media-item:hover {
   transform: translateY(-8px);
   background: rgba(255,255,255,0.12);
@@ -119,8 +137,9 @@ header img { height: 45px; }
   border-color: var(--pomp-and-power);
 }
 
-.media-poster { width: 80px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px; }
+.media-poster { width: 90px; height: 135px; object-fit: cover; border-radius: 8px; margin-right: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 .media-info h4 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
+.media-info p { font-size: 0.9rem; opacity: 0.7; }
 
 footer { text-align: center; padding: 2rem; background-color: var(--raisin-black); color: var(--silver); }
 
@@ -135,7 +154,7 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 <body>
 
 <header>
-    <a href="/"><img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Logo"></a>
+    <a href="/"><img src="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/media/RabsLabsFBO.png" alt="Rab's Labs Logo"></a>
     <nav class="desktop-nav">
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
@@ -164,22 +183,24 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 <div class="status-container">
     <div id="card-d14ms" class="server-card">
         <h3>D14MS</h3>
-        <p><span id="dot-d14ms" class="status-indicator"></span><strong>Status:</strong> <span id="text-d14ms">Syncing...</span></p>
+        <p><span id="dot-d14ms" class="status-indicator"></span><strong>Status:</strong> <span id="text-d14ms">Connecting...</span></p>
     </div>
     <div id="card-m11ad" class="server-card">
         <h3>M11AD</h3>
-        <p><span id="dot-m11ad" class="status-indicator"></span><strong>Status:</strong> <span id="text-m11ad">Syncing...</span></p>
+        <p><span id="dot-m11ad" class="status-indicator"></span><strong>Status:</strong> <span id="text-m11ad">Connecting...</span></p>
     </div>
 </div>
 
 <div class="wave">
-  <svg viewBox="0 0 1440 150" preserveAspectRatio="none"><path d="M0,64 C360,160 1080,0 1440,64 L1440,150 L0,150 Z" fill="var(--brunswick-green)"></path></svg>
+  <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+    <path d="M0,64 C360,160 1080,0 1440,64 L1440,150 L0,150 Z" fill="var(--brunswick-green)"></path>
+  </svg>
 </div>
 
 <section class="media-section">
     <h2 style="font-family: 'Dela Gothic One'; text-align: center;">Library Activity</h2>
     <div id="jellyfin-feed" class="media-list">
-        <p style="text-align: center;">Scanning D14MS...</p>
+        <p style="text-align: center;">Scanning D14MS library...</p>
     </div>
 </section>
 
@@ -189,42 +210,67 @@ footer { text-align: center; padding: 2rem; background-color: var(--raisin-black
 const KUMA_API = "https://restless-frost-d48b.rabslabs.workers.dev/";
 const JELLY_API = "https://rapid-cake-1e6a.rabslabs.workers.dev/";
 
-// Hamburger Logic
+/* --- Hamburger Logic --- */
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobile-nav');
-hamburger.onclick = () => mobileNav.classList.toggle('active');
-mobileNav.onclick = () => mobileNav.classList.remove('active');
 
+hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+});
+
+document.querySelectorAll('.mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+    });
+});
+
+/* --- Status Tracking --- */
 async function fetchStatus() {
     try {
         const response = await fetch(KUMA_API);
         const data = await response.json();
         const heartbeats = data.heartbeatList;
         const mapping = { '1': 'd14ms', '2': 'm11ad' };
+
         Object.keys(mapping).forEach(id => {
-            if (heartbeats[id]) {
+            const slug = mapping[id];
+            if (heartbeats[id] && heartbeats[id].length > 0) {
                 const latest = heartbeats[id][heartbeats[id].length - 1];
-                const dot = document.getElementById(`dot-${mapping[id]}`);
-                const text = document.getElementById(`text-${mapping[id]}`);
-                const card = document.getElementById(`card-${mapping[id]}`);
-                const online = latest.status === 1;
-                dot.className = `status-indicator ${online ? 'status-online' : 'status-offline'}`;
-                text.innerText = online ? "Online" : "Offline";
-                card.style.borderLeftColor = online ? "var(--good-green)" : "var(--alert-red)";
+                updateCard(slug, latest.status);
             }
         });
-    } catch (err) { console.error("Status error", err); }
+    } catch (err) { setGlobalStatus("Connection Error"); }
 }
 
+function updateCard(id, status) {
+    const dot = document.getElementById(`dot-${id}`);
+    const text = document.getElementById(`text-${id}`);
+    const card = document.getElementById(`card-${id}`);
+    const isOnline = (status === 1);
+
+    dot.className = `status-indicator ${isOnline ? 'status-online' : 'status-offline'}`;
+    text.innerText = isOnline ? "Online" : "Offline";
+    card.style.borderLeftColor = isOnline ? "var(--good-green)" : "var(--alert-red)";
+}
+
+function setGlobalStatus(msg) {
+    ['d14ms', 'm11ad'].forEach(id => {
+        document.getElementById(`text-${id}`).innerText = msg;
+    });
+}
+
+/* --- Jellyfin Media Feed --- */
 async function fetchJellyfin() {
     try {
         const res = await fetch(JELLY_API);
         const items = await res.json();
         const feed = document.getElementById('jellyfin-feed');
         feed.innerHTML = '';
+
         items.forEach(item => {
             const poster = `https://tv.rabslabs.xyz/Items/${item.Id}/Images/Primary?fillHeight=240&fillWidth=160&quality=90`;
             const year = item.ProductionYear ? ` • ${item.ProductionYear}` : "";
+            
             feed.innerHTML += `
                 <div class="media-item">
                     <img src="${poster}" class="media-poster" alt="${item.Name}">
@@ -234,12 +280,14 @@ async function fetchJellyfin() {
                     </div>
                 </div>`;
         });
-    } catch (err) { feed.innerText = "Unable to reach media server."; }
+    } catch (err) { document.getElementById('jellyfin-feed').innerText = "Unable to reach media server."; }
 }
 
+// Initial fire
 fetchStatus();
 fetchJellyfin();
-setInterval(fetchStatus, 30000);
+setInterval(fetchStatus, 30000); // 30s heartbeat
 </script>
+
 </body>
 </html>
