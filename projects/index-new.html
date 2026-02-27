@@ -314,14 +314,20 @@ async function fetchStatus() {
         
         const data = await response.json();
         const list = data.heartbeatList;
+        
+        console.log("Kuma Data Received:", list); // Debugging: See the data in F12 console
 
-        /**
-         * Since Kuma returns an array of heartbeat history,
-         * we grab the very last item in the array [.length - 1] 
-         * to get the most recent status.
-         */
-        if (list["1"]) updateUI('d14ms', list["1"][list["1"].length - 1]); 
-        if (list["2"]) updateUI('m11ad', list["2"][list["2"].length - 1]);
+        // Grab the most recent heartbeat for each ID
+        // We check for "1" as a string to match your API data exactly
+        if (list["1"] && list["1"].length > 0) {
+            const latestD14MS = list["1"][list["1"].length - 1];
+            updateUI('d14ms', latestD14MS);
+        }
+
+        if (list["2"] && list["2"].length > 0) {
+            const latestM11AD = list["2"][list["2"].length - 1];
+            updateUI('m11ad', latestM11AD);
+        }
 
     } catch (err) {
         console.warn("Status relay failure:", err);
@@ -334,7 +340,9 @@ function updateUI(id, latestHeartbeat) {
     const text = document.getElementById(`text-${id}`);
     const card = document.getElementById(`card-${id}`);
 
-    // status === 1 is Online, 0 is Offline
+    if (!dot || !text || !card) return;
+
+    // Force check: status must be exactly 1 to be "Online"
     if (latestHeartbeat && latestHeartbeat.status === 1) {
         dot.className = "status-indicator status-online";
         text.innerText = "Online";
@@ -348,12 +356,17 @@ function updateUI(id, latestHeartbeat) {
 
 function triggerNetworkDown() {
     ['d14ms', 'm11ad'].forEach(id => {
-        document.getElementById(`text-${id}`).innerText = "Network Down";
-        document.getElementById(`dot-${id}`).className = "status-indicator status-offline";
-        document.getElementById(`card-${id}`).style.borderLeftColor = "var(--alert-red)";
+        const text = document.getElementById(`text-${id}`);
+        const dot = document.getElementById(`dot-${id}`);
+        const card = document.getElementById(`card-${id}`);
+        
+        if (text) text.innerText = "Network Down";
+        if (dot) dot.className = "status-indicator status-offline";
+        if (card) card.style.borderLeftColor = "var(--alert-red)";
     });
 }
 
+// Initial fire and 30s interval
 fetchStatus();
 setInterval(fetchStatus, 30000);
 </script>
