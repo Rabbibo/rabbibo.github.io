@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.rabslabs.xyz/</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>1.00</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rabslabs.xyz/projects</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.80</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rabslabs.xyz/portfolio</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.80</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rabslabs.xyz/links</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.70</priority>
+  </url>
 
-
-<url>
-  <loc>https://www.rabslabs.xyz/</loc>
-  <lastmod>2024-08-25T05:21:30+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.rabslabs.xyz/contacts</loc>
-  <lastmod>2024-08-25T05:21:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+  <url>
+    <loc>https://status.rabslabs.xyz/status/default</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.50</priority>
+  </url>
 </urlset>
