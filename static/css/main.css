@@ -456,6 +456,8 @@ code { font-size: .85em; }
 .resume__header { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; padding-bottom: 3rem; border-bottom: 2px solid var(--ink); }
 .resume__header h1 { max-width: 1000px; margin: 1rem 0; font-size: clamp(3rem, 7.5vw, 8rem); line-height: .84; letter-spacing: -.075em; }
 .resume__title { font-size: 1.3rem; font-weight: 700; }
+.resume__contact { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin-top: 1rem; padding: 0; list-style: none; }
+.resume__contact a { text-decoration: underline; text-underline-offset: .18em; }
 .resume-notice { margin: 2rem 0; padding: 1rem; border: 2px solid var(--coral); background: #ffe3dc; color: var(--ink); }
 .resume__layout { display: grid; grid-template-columns: 2fr 1fr; gap: clamp(3rem, 8vw, 8rem); }
 .resume__main, .resume__aside { display: grid; align-content: start; gap: 3rem; }
@@ -465,6 +467,7 @@ code { font-size: .85em; }
 .resume section > p:not(.placeholder), .resume article p { margin-top: 1rem; }
 .resume ul { list-style-position: inside; display: grid; gap: .45rem; margin-top: 1rem; }
 .placeholder { margin-top: 1rem; padding: .8rem; background: rgba(255, 107, 74, .11); color: #5e3026; }
+.sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
 
 /* Archives, experiment, 404 */
 .archive-page, .artifact-page { min-height: 100svh; padding-top: calc(var(--header-h) + 7rem); padding-bottom: 7rem; }

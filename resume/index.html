@@ -10,7 +10,7 @@
   <link rel="icon" href="/static/assets/brand/rabs-labs-dragon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/static/css/main.css">
   <script src="/static/js/main.js" defer></script>
-  
+  <script src="/static/js/resume.js" defer></script>
 </head>
 <body class="resume-page" data-page="resume">
   <div class="loader" data-loader aria-hidden="true">
@@ -64,42 +64,46 @@
 
   <main id="main-content" tabindex="-1">
     
-<article class="resume shell">
+<article class="resume shell" data-resume-root data-resume-source="/content/resume.json" aria-busy="false">
   <header class="resume__header">
     <div>
       <p class="eyebrow">Professional profile / Development draft</p>
-      <h1>[Full name — add in content/resume.json]</h1>
-      <p class="resume__title">[Professional title — add in content/resume.json]</p>
-      <p>[Location not supplied]</p>
+      <h1 data-resume-name>[Full name — add in content/resume.json]</h1>
+      <p class="resume__title" data-resume-title>[Professional title — add in content/resume.json]</p>
+      <p data-resume-location>[Location not supplied]</p>
+      <ul class="resume__contact" data-resume-contact hidden>
+        
+      </ul>
     </div>
     <button type="button" class="button button--accent print-button" data-print>Print / Save as PDF</button>
   </header>
 
-  <div class="resume-notice" role="note"><strong>Input required.</strong> Resume details were not supplied. Placeholder fields are intentionally visible in development and must be replaced before professional use.</div>
+  <p class="sr-only" role="status" aria-live="polite" data-resume-status></p>
+  <div class="resume-notice" role="note" data-resume-notice ><strong>Input required.</strong> <span data-resume-notice-text>Resume details were not supplied. Placeholder fields are intentionally visible in development and must be replaced before professional use.</span></div>
 
   <div class="resume__layout">
     <div class="resume__main">
-      <section aria-labelledby="summary-heading"><h2 id="summary-heading">Professional summary</h2><p>[Professional summary not supplied. Describe the verified focus, scope, and value of your work here.]</p></section>
+      <section aria-labelledby="summary-heading"><h2 id="summary-heading">Professional summary</h2><p data-resume-summary>[Professional summary not supplied. Describe the verified focus, scope, and value of your work here.]</p></section>
 
-      <section aria-labelledby="experience-heading"><h2 id="experience-heading">Work experience</h2>
+      <section aria-labelledby="experience-heading"><h2 id="experience-heading">Work experience</h2><div data-resume-experience>
         <p class="placeholder">[No work experience supplied. Add verified roles in content/resume.json.]</p>
-      </section>
+      </div></section>
 
-      <section aria-labelledby="projects-heading"><h2 id="projects-heading">Selected projects</h2>
+      <section aria-labelledby="projects-heading"><h2 id="projects-heading">Selected projects</h2><div data-resume-projects>
         <article><h3>Homelab &amp; Infrastructure</h3><p>Jellyfin, NAS, Homebridge, Home Assistant, networking, and service hosting.</p></article><article><h3>Fistful of Iron</h3><p>Modern Western in development about a fight over an inherited family farm and the buried gold beneath it.</p></article>
-      </section>
+      </div></section>
 
-      <section aria-labelledby="education-heading"><h2 id="education-heading">Education</h2>
+      <section aria-labelledby="education-heading"><h2 id="education-heading">Education</h2><div data-resume-education>
         <p class="placeholder">[Education not supplied.]</p>
-      </section>
+      </div></section>
     </div>
 
     <aside class="resume__aside">
-      <section aria-labelledby="skills-heading"><h2 id="skills-heading">Core skills</h2><ul><li>Photography</li><li>Videography</li><li>Cinematography</li><li>Mechanics</li><li>Networking fundamentals</li><li>Server configuration</li><li>Virtualization</li><li>Self-hosting</li></ul></section>
-      <section aria-labelledby="tools-heading"><h2 id="tools-heading">Tools & technologies</h2><ul><li>Jellyfin</li><li>Homebridge</li><li>Home Assistant</li></ul></section>
-      <section aria-labelledby="certs-heading"><h2 id="certs-heading">Certifications</h2><p class="placeholder">[None supplied.]</p></section>
-      <section aria-labelledby="achievements-heading"><h2 id="achievements-heading">Achievements</h2><p class="placeholder">[None supplied.]</p></section>
-      <section aria-labelledby="references-heading"><h2 id="references-heading">References</h2><p class="placeholder">[Optional references statement not supplied]</p></section>
+      <section aria-labelledby="skills-heading"><h2 id="skills-heading">Core skills</h2><div data-resume-skills><ul><li>Photography</li><li>Videography</li><li>Cinematography</li><li>Mechanics</li><li>Networking fundamentals</li><li>Server configuration</li><li>Virtualization</li><li>Self-hosting</li></ul></div></section>
+      <section aria-labelledby="tools-heading"><h2 id="tools-heading">Tools & technologies</h2><div data-resume-tools><ul><li>Jellyfin</li><li>Homebridge</li><li>Home Assistant</li></ul></div></section>
+      <section aria-labelledby="certs-heading"><h2 id="certs-heading">Certifications</h2><div data-resume-certifications><p class="placeholder">[None supplied.]</p></div></section>
+      <section aria-labelledby="achievements-heading"><h2 id="achievements-heading">Achievements</h2><div data-resume-achievements><p class="placeholder">[None supplied.]</p></div></section>
+      <section aria-labelledby="references-heading"><h2 id="references-heading">References</h2><p class="placeholder" data-resume-references>[Optional references statement not supplied]</p></section>
     </aside>
   </div>
 </article>
