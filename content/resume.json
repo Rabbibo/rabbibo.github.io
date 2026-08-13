@@ -3,7 +3,7 @@
   "name": "Jackson Bolton",
   "location": "Waxahachie, Texas, United States",
   "contact": [
-    {"type": "email", "value": "jbolton1200@gmail.com"}
+    {"type": "email", "value": "jbolton1200@gmail.com"},
     {"type": "phone", "value": "+1 (214) 433-1200"}
   ],
   "summary": "[Professional summary not supplied. Describe the verified focus, scope, and value of your work here.]",
@@ -23,16 +23,16 @@
     {"name": "Fistful of Iron", "detail": "Modern Western in development about a fight over an inherited family farm and the buried gold beneath it."}
   ],
   "education": [
-    {"name":"Texas State Technical College", "degree":"Certificate in Cybersecurity", "year":"2027"}
+    {"name":"Texas State Technical College", "degree":"Certificate in Cybersecurity", "year":"2027"},
     {"name":"Ferris High School", "degree":"High School Diploma", "year":"2027"}
   ],
   "certifications": [
     {"name": "CompTIA A+",
       "year": "2027"
-    }
+    },
     {"name": "Nocti Job Ready Certification Knowledge-Based Written",
       "year": "2026"
-    }
+    },
     {"name": "Nocti Job Ready Certification Skills-Based Performance",
       "year": "2026"
     }
