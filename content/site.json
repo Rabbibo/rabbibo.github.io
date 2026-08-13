@@ -1,0 +1,25 @@
+{
+  "name": "Rab's Labs LLC",
+  "short_name": "RL",
+  "eyebrow": "Films, photographs, machines, and self-hosted systems",
+  "hero_line_one": "Perception isn't",
+  "hero_line_two": "reality.",
+  "intro": "Rab's Labs is where I keep the things I make and the systems I run: photography, short films, car projects, servers, and whatever I decide to try next.",
+  "about": "Rab's Labs is part studio, part workshop, and part server room. It is where I make films and photographs, work on cars, run my own services, and keep ideas worth coming back to.",
+  "capabilities": [
+    {"number": "01", "title": "Visual work", "detail": "Photography, cinematography, editing, and the small choices that make an image feel right."},
+    {"number": "02", "title": "Systems", "detail": "Networking, virtualization, storage, media services, and the home lab behind it all."},
+    {"number": "03", "title": "Hands-on work", "detail": "Cars, repairs, and the kind of troubleshooting that usually starts with taking something apart."},
+    {"number": "04", "title": "Archives", "detail": "Finding old media, sorting it out, and giving it a second life."}
+  ],
+  "network_links": [
+    {"label": "D14MS (Primary Server)", "url": "/status", "kind": "Systems overview"},
+    {"label": "Status Page (Full)", "url": "https://status.rabslabs.xyz/status/default", "kind": "External service"},
+    {"label": "Jellyfin (Primary)", "url": "https://tv.rabslabs.xyz", "kind": "External service"},
+    {"label": "Jellyfin (Legacy)", "url": "https://tv3.rabslabs.xyz", "kind": "External service"},
+    {"label": "Photography Portfolio", "url": "https://portfolio.rabslabs.xyz", "kind": "Galleria / M11AD"},
+    {"label": "GitHub Profile", "url": "https://github.com/rabbibo", "kind": "Public profile"},
+    {"label": "GSF Testing", "url": "https://gsf.rabslabs.xyz", "kind": "Hosted experiment"},
+    {"label": "Bean Studios", "url": "https://bean.rabslabs.xyz", "kind": "Hosted site"}
+  ]
+}

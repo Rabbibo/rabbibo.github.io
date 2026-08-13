@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "homelab",
+    "number": "01",
+    "title": "Homelab & Infrastructure",
+    "category": "Systems / Self-hosting",
+    "year": "Ongoing",
+    "summary": "A personal playground for networking, virtualization, media services, file storage, and home automation.",
+    "intro": "These systems have run the technical side of Rab's Labs: media streaming, centralized storage, smart-home bridging, and service experimentation.",
+    "role": "Owner, operator, and maintainer",
+    "services": ["Networking", "Virtualization", "Server configuration", "Self-hosting"],
+    "sections": [
+      {"title": "D14MS", "label": "Jellyfin / NAS", "body": "The primary media system, hosting the Jellyfin library and handling centralized file storage."},
+      {"title": "M11AD", "label": "Homebridge / Home Assistant", "body": "A dedicated home-automation system for bridging and coordinating smart devices."}
+    ],
+    "status_note": "Live monitoring is not connected to this page, so no current operational state is claimed.",
+    "media": "hero-landscape.webp",
+    "media_alt": "Wide view across green hills beneath a layered storm sky"
+  },
+  {
+    "slug": "fistful-of-iron",
+    "number": "02",
+    "title": "Fistful of Iron",
+    "category": "Modern Western / College short film",
+    "year": "In development",
+    "summary": "Joseph Garcia refuses to sell the family farm he inherited. Ramiro Gomez has other plans for the land—and the buried gold beneath it.",
+    "intro": "Set around Palmer, Texas, Fistful of Iron follows Joseph, his brother-in-law Ketterman, and a fight over family land that leads to a ten-pace duel on Sutton Road.",
+    "role": "Writer and cast (Ketterman)",
+    "services": ["Screenwriting", "Pre-production", "Cinematography", "Editing"],
+    "story_heading": "A family farm, buried gold, and a deal Joseph won't take.",
+    "story": [
+      "Joseph Garcia inherits his grandfather's farm, along with a ledger and a Colt Walker. Somewhere on the land is buried gold.",
+      "Ramiro Gomez arrives with an astonishing offer to buy the property. Joseph refuses, and the fight over the farm pulls Joseph, Ketterman, and Gomez toward a ten-pace duel on Sutton Road."
+    ],
+    "status_note": "The film is still being written and developed. The farm, the buried gold, Gomez's offer, and the Sutton Road duel are established parts of the story.",
+    "media": "fistful-of-iron.webp",
+    "media_alt": "A white Toyota 4Runner sitting in a cornfield beneath a pink and purple evening sky"
+  }
+]
