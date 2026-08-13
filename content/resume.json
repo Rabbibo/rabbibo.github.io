@@ -1,12 +1,13 @@
 {
   "development_notice": "Resume details were not supplied. Placeholder fields are intentionally visible in development and must be replaced before professional use.",
   "name": "Jackson Bolton",
+  "title": "Student",
   "location": "Waxahachie, Texas, United States",
   "contact": [
     {"type": "email", "value": "jbolton1200@gmail.com"},
     {"type": "phone", "value": "+1 (214) 433-1200"}
   ],
-  "summary": "[Professional summary not supplied. Describe the verified focus, scope, and value of your work here.]",
+  "summary": "I am a highly motivated and skilled individual with a strong background in photography, videography, and cinematography. I have experience in mechanics, networking fundamentals, server configuration, virtualization, and self-hosting. I am passionate about technology and continuously seek opportunities to expand my knowledge and skills. I am a dedicated team player with excellent problem-solving abilities and a strong work ethic.",
   "skills": [
     "Photography",
     "Videography",
@@ -18,9 +19,9 @@
     "Self-hosting"
   ],
   "experience": [
-    {"name":"Piano Movers of Texas", "role":"Mover", "year":"2024-2026", "detail": "Moving pianos for clients to other locations, and working on projects around the company."},
-    {"name":"Bugeye Media", "role":"Leader", "year":"2024-2027", "detail":"I lead a team that live steams and records events for Ferris High School, and individual projects."},
-    {"name":"Cybersecurity", "role":"Yes", "year":"2024-2027", "detail":"I both took Cyber classes while helping others understand their cyber work"}
+    {"name":"Piano Movers of Texas", "role":"Piano Mover", "year":"2024-2026", "detail": "I worked for Piano Movers of Texas moving for clients to other locations, and working on projects around the company."},
+    {"name":"Bugeye Media", "role":"Leader at Bugeye Media", "year":"2024-2027", "detail":"As a student, I lead a team that live steams and records events for Ferris High School, and individual projects."},
+    {"name":"Cybersecurity", "role":"Cybersecurity student mentor", "year":"2024-2027", "detail":"I both took Cyber classes while helping other students understand their cyber work"}
   ],
   "projects": [
     {"name": "Homelab & Infrastructure", "detail": "Jellyfin, NAS, Homebridge, Home Assistant, networking, and service hosting."},
@@ -46,6 +47,6 @@
     {"name": "Leading a successful team of students to live stream sports games for Ferris High School", "year": "2025-2027"}
   ],
   "references": [
-    {"name": "Wayne Levan", "role": "Teacher"}
+    {"references": "Wayne Levan — A/V Teacher; Richard Simms - Cybersecurity Coordinator; Gordon Bolton - Piano Movers of Texas Owner"},    
   ]
 }
