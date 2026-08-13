@@ -17,7 +17,11 @@
     "Virtualization",
     "Self-hosting"
   ],
-  "experience": [],
+  "experience": [
+    {"name":"Piano Movers of Texas", "role":"Mover", "year":"2024-2026", "detail": "Moving pianos for clients to other locations, and working on projects around the company."},
+    {"name":"Bugeye Media", "role":"Leader", "year":"2024-2027", "detail":"I lead a team that live steams and records events for Ferris High School, and individual projects."},
+    {"name":"Cybersecurity", "role":"Yes", "year":"2024-2027", "detail":"I both took Cyber classes while helping others understand their cyber work"}
+  ],
   "projects": [
     {"name": "Homelab & Infrastructure", "detail": "Jellyfin, NAS, Homebridge, Home Assistant, networking, and service hosting."},
     {"name": "Fistful of Iron", "detail": "Modern Western in development about a fight over an inherited family farm and the buried gold beneath it."}
@@ -38,6 +42,10 @@
     }
   ],
   "tools": ["Jellyfin", "Homebridge", "Home Assistant"],
-  "achievements": [],
-  "references": "[Optional references statement not supplied]"
+  "achievements": [
+    {"name": "Leading a successful team of students to live stream sports games for Ferris High School", "year": "2025-2027"}
+  ],
+  "references": [
+    {"name": "Wayne Levan", "role": "Teacher"}
+  ]
 }
