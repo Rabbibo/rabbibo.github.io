@@ -1,221 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 - Rab's Labs</title>
-
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
-
-<!-- Meta description for social previews -->
-<meta name="description" content="Your central hub for projects, portfolio, and hosted technical setups.">
-
-<!-- Open Graph / Discord, Facebook, LinkedIn previews -->
-<meta property="og:title" content="Rab's Labs">
-<meta property="og:description" content="Your central hub for projects, portfolio, and hosted technical setups.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.rabslabs.xyz/">
-<meta property="og:image" content="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/backdrops/IMG_20240314_114826123.jpg">
-
-<!-- Twitter previews -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Rab's Labs">
-<meta name="twitter:description" content="Your central hub for projects, portfolio, and hosted technical setups.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Rabbibo/rabbibo.github.io/main/backdrops/IMG_20240314_114826123.jpg">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-    --brunswick-green: #004643;
-    --pomp-and-power: #706993;
-    --silver: #bfb5af;
-    --dim-gray: #6d6569;
-    --raisin-black: #1a1423;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-    font-family: "Nanum Gothic", Arial, sans-serif;
-    background-color: var(--silver);
-    color: var(--raisin-black);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Header */
-header {
-    position: fixed;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 5%;
-    background-color: var(--raisin-black);
-    z-index: 1000;
-}
-header img { height: 50px; }
-
-nav {
-    display: flex;
-    align-items: center;
-}
-
-nav a {
-    color: var(--silver);
-    text-decoration: none;
-    font-weight: 700;
-    margin-left: 2rem;
-    padding: 0.2em 0.5em;
-    border-radius: 5px;
-    transition: all 0.3s;
-}
-nav a:hover {
-    background-color: var(--pomp-and-power);
-    color: var(--silver);
-    border-radius: 10px;
-}
-
-/* Hamburger */
-.hamburger {
-  cursor: pointer;
-  display: none;
-  margin-left: 1rem;
-}
-.hamburger input { display: none; }
-.hamburger svg {
-  height: 3em;
-  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.line {
-  fill: none;
-  stroke: var(--brunswick-green);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 3;
-  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.line-top-bottom { stroke-dasharray: 12 63; }
-.hamburger input:checked + svg { transform: rotate(-45deg); }
-.hamburger input:checked + svg .line-top-bottom {
-    stroke-dasharray: 20 300;
-    stroke-dashoffset: -32.42;
-}
-
-/* Mobile Menu */
-.mobile-menu {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    background-color: var(--brunswick-green);
-    border-radius: 15px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none;
-    transition: all 0.3s ease;
-    z-index: 999;
-}
-.mobile-menu a {
-    color: var(--silver);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    transition: all 0.3s;
-}
-.mobile-menu a:hover {
-    background-color: var(--pomp-and-power);
-    color: var(--silver);
-}
-.hamburger input:checked ~ .mobile-menu {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
-/* 404 Content */
-.four-oh-four {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 100px;
-    text-align: center;
-}
-.four-oh-four h1 {
-    font-size: 6rem;
-    font-family: 'Dela Gothic One', sans-serif;
-    margin-bottom: 1rem;
-}
-.four-oh-four p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-.four-oh-four button {
-    background-color: var(--brunswick-green);
-    color: white;
-    border-radius: 10em;
-    font-size: 17px;
-    font-weight: 600;
-    padding: 1em 2em;
-    cursor: pointer;
-    border: 1px solid var(--brunswick-green);
-    transition: all 0.3s ease-in-out;
-}
-.four-oh-four button:hover {
-    background-color: var(--pomp-and-power);
-    color: var(--silver);
-}
-
-/* Responsive Hamburger Display */
-@media (max-width: 900px) {
-    nav { display: none; }
-    .hamburger { display: block; }
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="That Rab&#39;s Labs route could not be found.">
+  <meta name="theme-color" content="#111311">
+  <title>404 — Signal Lost — Rab&#39;s Labs LLC</title>
+  <link rel="icon" href="/static/assets/brand/rabs-labs-dragon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <script src="/static/js/main.js" defer></script>
+  
 </head>
-<body>
+<body class="error-page" data-page="">
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader__mark">
+      <span>R</span><i></i><span>L</span>
+    </div>
+    <p>Calibrating the lab</p>
+  </div>
 
-<header id="header">
-    <a href="/"><img src="/media/favicon.svg" alt="Logo"></a>
-    <nav>
-        <a href="/">Home</a>
-        <a href="https://www.rabslabs.xyz/projects">Projects</a>
-        <a href="https://portfolio.rabslabs.xyz">Portfolio</a>
-        <a href="https://www.rabslabs.xyz/links">Links</a>
-    </nav>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header" data-header>
+  <a class="brand" href="/" aria-label="Rab's Labs, home">
+    <img src="/static/assets/brand/rabs-labs-dragon.svg" width="48" height="48" alt="Rab's Labs dragon mark">
+    <span>Rab's Labs.</span>
+  </a>
 
-    <!-- Hamburger -->
-    <label class="hamburger">
-        <input type="checkbox">
-        <svg viewBox="0 0 32 32">
-            <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-            <path class="line" d="M7 16 27 16"></path>
-        </svg>
+  <nav class="desktop-nav" aria-label="Primary navigation">
+    <a href="/work/" >Work</a>
+    <a href="/portfolio/" >Portfolio</a>
+    <a href="/about/" >About</a>
+    <a href="/resume/" >Resume</a>
+  </nav>
 
-        <div class="mobile-menu">
-            <a href="/">Home</a>
-            <a href="https://www.rabslabs.xyz/projects">Projects</a>
-            <a href="https://portfolio.rabslabs.xyz">Portfolio</a>
-            <a href="https://www.rabslabs.xyz/links">Links</a>
-        </div>
-    </label>
+  <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open>
+    <span class="menu-button__label">Menu</span>
+    <span class="menu-button__icon" aria-hidden="true"><i></i><i></i></span>
+  </button>
 </header>
 
-<div class="four-oh-four">
-    <h1>404</h1>
-    <p>Oops… looks like this page doesn’t exist.</p>
-    <button onclick="window.location.href='/'">Return Home</button>
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="menu-title" hidden data-menu>
+  <div class="mobile-menu__wash" data-menu-backdrop></div>
+  <div class="mobile-menu__panel">
+    <div class="mobile-menu__topline">
+      <p id="menu-title">Rab's Labs / Navigate</p>
+      <button class="icon-button icon-button--light" type="button" aria-label="Close menu" data-menu-close>×</button>
+    </div>
+    <nav aria-label="Mobile navigation">
+      <a href="/" ><span>01</span>Home</a>
+      <a href="/work/" ><span>02</span>Work</a>
+      <a href="/portfolio/" ><span>03</span>Portfolio</a>
+      <a href="/about/" ><span>04</span>About</a>
+      <a href="/resume/" ><span>05</span>Resume</a>
+      <a href="/links/" ><span>06</span>Network</a>
+    </nav>
+    <div class="mobile-menu__footer">
+      <span>D14MS / Primary server</span>
+      <button type="button" class="text-button" data-contact-open>Contact details</button>
+    </div>
+  </div>
 </div>
 
+  <main id="main-content" tabindex="-1">
+    
+<section class="not-found shell">
+  <div class="not-found__signal" aria-hidden="true"><span>4</span><i></i><span>4</span></div>
+  <p class="eyebrow">Error / Signal lost</p>
+  <h1>This route left<br><em>no trace.</em></h1>
+  <p>The page may have moved, been retired, or never belonged to the recovered site.</p>
+  <div class="button-row"><a class="button button--accent" href="/">Return home</a><a class="button button--outline-light" href="/work/">Browse work</a></div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-marquee" aria-hidden="true">
+    <div>Curiosity into form — Perception is not reality — Curiosity into form — Perception is not reality — Curiosity into form — Perception is not reality —</div>
+  </div>
+  <div class="footer-grid shell">
+    <div>
+      <span class="eyebrow">Open a new thread</span>
+      <h2>Let the next<br>thing <em>begin.</em></h2>
+    </div>
+    <div class="footer-actions">
+      <button type="button" class="button button--accent magnetic" data-contact-open>Contact details</button>
+      <a href="/links/">Network directory <span aria-hidden="true">↗</span></a>
+      <a href="/status/">Server overview <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="footer-meta shell">
+    <p>© 2026 Rab's Labs LLC. All rights reserved.</p>
+    <p>Hosted on GitHub Pages / No tracking / No telemetry</p>
+    <a href="#main-content">Back to top ↑</a>
+  </div>
+</footer>
+
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+    <div class="dialog__topline">
+      <span class="eyebrow">Contact details</span>
+      <button class="icon-button" type="button" data-dialog-close aria-label="Close contact details">×</button>
+    </div>
+    <h2 id="contact-title">Make contact.</h2>
+    <p>I haven’t added a public email address yet. For now, GitHub is the best place to find me and follow the work.</p>
+    <a class="button button--dark" href="https://github.com/rabbibo" target="_blank" rel="noopener noreferrer">Visit verified GitHub <span aria-hidden="true">↗</span></a>
+    <p class="fine-print">Add optional contact methods in <code>content/site.json</code> when ready.</p>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
+  <div class="cursor" aria-hidden="true" data-cursor><span></span></div>
 </body>
 </html>

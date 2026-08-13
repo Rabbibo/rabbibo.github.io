@@ -2,31 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.rabslabs.xyz/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <priority>1.00</priority>
+    <lastmod>2026-08-12</lastmod>
   </url>
-  
   <url>
-    <loc>https://www.rabslabs.xyz/projects</loc>
-    <lastmod>2026-02-27</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.rabslabs.xyz/about/</loc>
+    <lastmod>2026-08-12</lastmod>
   </url>
-  
   <url>
-    <loc>https://www.rabslabs.xyz/portfolio</loc>
-    <lastmod>2026-02-27</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.rabslabs.xyz/work/</loc>
+    <lastmod>2026-08-12</lastmod>
   </url>
-  
   <url>
-    <loc>https://www.rabslabs.xyz/links</loc>
-    <lastmod>2026-02-27</lastmod>
-    <priority>0.70</priority>
+    <loc>https://www.rabslabs.xyz/projects/homelab/</loc>
+    <lastmod>2026-08-12</lastmod>
   </url>
-
   <url>
-    <loc>https://status.rabslabs.xyz/status/default</loc>
-    <lastmod>2026-02-27</lastmod>
-    <priority>0.50</priority>
+    <loc>https://www.rabslabs.xyz/projects/fistful-of-iron/</loc>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.rabslabs.xyz/portfolio/</loc>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.rabslabs.xyz/status/</loc>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.rabslabs.xyz/links/</loc>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.rabslabs.xyz/resume/</loc>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.rabslabs.xyz/bean-studios/</loc>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.rabslabs.xyz/bean-studios/about/</loc>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.rabslabs.xyz/experiments/bean-cube/</loc>
+    <lastmod>2026-08-12</lastmod>
   </url>
 </urlset>

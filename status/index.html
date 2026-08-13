@@ -1,298 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Network Status - Rab's Labs</title>
-
-<link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --brunswick-green: #004643;
-  --pomp-and-power: #706993;
-  --silver: #bfb5af;
-  --dim-gray: #6d6569;
-  --raisin-black: #1a1423;
-  --alert-red: #e74c3c;
-  --good-green: #2ecc71;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: "Nanum Gothic", Arial, sans-serif;
-  background-color: var(--silver);
-  color: var(--raisin-black);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* --- Header & Animated Hamburger Menu --- */
-header {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 5%;
-  background-color: var(--raisin-black);
-  z-index: 1000;
-}
-header img { height: 50px; }
-
-nav { display: flex; align-items: center; }
-
-nav a {
-  color: var(--silver);
-  text-decoration: none;
-  font-weight: 700;
-  margin-left: 2rem;
-  transition: all 0.3s;
-  padding: 0.2em 0.5em;
-  border-radius: 5px;
-}
-nav a:hover { background-color: var(--pomp-and-power); border-radius: 10px; }
-
-/* Hamburger SVG Colors & Logic */
-.hamburger {
-  cursor: pointer;
-  display: none;
-  margin-left: 1rem;
-}
-.hamburger input { display: none; }
-.hamburger svg {
-  height: 3em;
-  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.line {
-  fill: none;
-  stroke: var(--brunswick-green); 
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 3;
-  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.line-top-bottom { stroke-dasharray: 12 63; }
-.hamburger input:checked + svg { transform: rotate(-45deg); }
-.hamburger input:checked + svg .line-top-bottom {
-  stroke-dasharray: 20 300;
-  stroke-dashoffset: -32.42;
-}
-
-/* Mobile Menu matching Homepage style */
-.mobile-menu {
-  position: fixed;
-  top: 80px;
-  right: 20px;
-  background-color: var(--brunswick-green);
-  border-radius: 15px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  opacity: 0;
-  transform: translateY(-20px);
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-.mobile-menu a {
-  color: var(--silver);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  transition: all 0.3s;
-}
-.mobile-menu a:hover { background-color: var(--pomp-and-power); }
-.hamburger input:checked ~ .mobile-menu {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* --- Hero Section --- */
-.page-title { padding: 150px 5% 2rem; text-align: center; }
-.page-title h1 { font-family: 'Dela Gothic One', sans-serif; font-size: 3rem; color: var(--brunswick-green); }
-
-/* --- Infrastructure Health Cards --- */
-.status-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 5%; }
-.server-card { 
-  background: #fff; 
-  border-radius: 12px; 
-  padding: 2rem; 
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-  border-left: 5px solid var(--brunswick-green); 
-  transition: border-color 0.5s ease; 
-}
-/* Updated Title Font */
-.server-card h3 {
-  font-family: 'Dela Gothic One', sans-serif;
-  color: var(--raisin-black);
-  margin-bottom: 0.5rem;
-}
-.status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
-.status-online { background-color: var(--good-green); }
-.status-offline { background-color: var(--alert-red); }
-
-/* --- Wave Divider --- */
-.wave { line-height: 0; background-color: var(--silver); }
-.wave svg { display: block; width: 100%; height: 100px; }
-
-/* --- Media Feed with "Lift" Animation --- */
-.media-section { background-color: var(--brunswick-green); padding: 4rem 5%; color: var(--silver); margin-top: -1px; }
-.media-list { max-width: 800px; margin: 2rem auto 0; }
-
-.media-item {
-  display: flex; align-items: center;
-  background: rgba(255,255,255,0.05);
-  margin-bottom: 1.5rem; border-radius: 15px; padding: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.media-item:hover {
-  transform: translateY(-8px);
-  background: rgba(255,255,255,0.12);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-  border-color: var(--pomp-and-power);
-}
-
-.media-poster { width: 90px; height: 135px; object-fit: cover; border-radius: 8px; margin-right: 25px; }
-.media-info h4 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
-
-footer { text-align: center; padding: 2rem; background-color: var(--raisin-black); color: var(--silver); }
-
-@media (max-width: 900px) {
-  nav { display: none; }
-  .hamburger { display: block; }
-  .media-item { flex-direction: column; text-align: center; }
-  .media-poster { margin-right: 0; margin-bottom: 15px; }
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A privacy-first overview of the D14MS and M11AD systems. External live monitoring is intentionally disabled.">
+  <meta name="theme-color" content="#111311">
+  <link rel="canonical" href="https://www.rabslabs.xyz/status/">
+  <title>Server Overview — Rab&#39;s Labs LLC</title>
+  <link rel="icon" href="/static/assets/brand/rabs-labs-dragon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <script src="/static/js/main.js" defer></script>
+  
 </head>
-<body>
+<body class="" data-page="status">
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader__mark">
+      <span>R</span><i></i><span>L</span>
+    </div>
+    <p>Calibrating the lab</p>
+  </div>
 
-<header id="header">
-  <a href="/"><img src="/media/favicon.svg" alt="Logo"></a>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/projects">Projects</a>
-    <a href="/status">Status</a>
-    <a href="https://portfolio.rabslabs.xyz">Portfolio</a>
-    <a href="/links">Links</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header" data-header>
+  <a class="brand" href="/" aria-label="Rab's Labs, home">
+    <img src="/static/assets/brand/rabs-labs-dragon.svg" width="48" height="48" alt="Rab's Labs dragon mark">
+    <span>Rab's Labs.</span>
+  </a>
+
+  <nav class="desktop-nav" aria-label="Primary navigation">
+    <a href="/work/" >Work</a>
+    <a href="/portfolio/" >Portfolio</a>
+    <a href="/about/" >About</a>
+    <a href="/resume/" >Resume</a>
   </nav>
 
-  <label class="hamburger">
-    <input type="checkbox">
-    <svg viewBox="0 0 32 32">
-      <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-      <path class="line" d="M7 16 27 16"></path>
-    </svg>
-
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/projects">Projects</a>
-      <a href="/status">Status</a>
-      <a href="https://portfolio.rabslabs.xyz">Portfolio</a>
-      <a href="/links">Links</a>
-    </div>
-  </label>
+  <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open>
+    <span class="menu-button__label">Menu</span>
+    <span class="menu-button__icon" aria-hidden="true"><i></i><i></i></span>
+  </button>
 </header>
 
-<div class="page-title">
-    <h1>System Status</h1>
-    <p>Server status and recently added media</p>
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="menu-title" hidden data-menu>
+  <div class="mobile-menu__wash" data-menu-backdrop></div>
+  <div class="mobile-menu__panel">
+    <div class="mobile-menu__topline">
+      <p id="menu-title">Rab's Labs / Navigate</p>
+      <button class="icon-button icon-button--light" type="button" aria-label="Close menu" data-menu-close>×</button>
+    </div>
+    <nav aria-label="Mobile navigation">
+      <a href="/" ><span>01</span>Home</a>
+      <a href="/work/" ><span>02</span>Work</a>
+      <a href="/portfolio/" ><span>03</span>Portfolio</a>
+      <a href="/about/" ><span>04</span>About</a>
+      <a href="/resume/" ><span>05</span>Resume</a>
+      <a href="/links/" ><span>06</span>Network</a>
+    </nav>
+    <div class="mobile-menu__footer">
+      <span>D14MS / Primary server</span>
+      <button type="button" class="text-button" data-contact-open>Contact details</button>
+    </div>
+  </div>
 </div>
 
-<div class="status-container">
-    <div id="card-d14ms" class="server-card">
-        <h3>D14MS</h3>
-        <p><span id="dot-d14ms" class="status-indicator"></span><strong>Status:</strong> <span id="text-d14ms">Connecting...</span></p>
-        <p><strong>Roles:</strong> Jellyfin, NAS</p>
-        <p style="margin-top:0.5rem;">The primary media powerhouse that hosts the entire Jellyfin library and handles centralized file storage.</p>
-    </div>
-    <div id="card-m11ad" class="server-card">
-        <h3>M11AD</h3>
-        <p><span id="dot-m11ad" class="status-indicator"></span><strong>Status:</strong> <span id="text-m11ad">Connecting...</span></p>
-        <p><strong>Roles:</strong> Homebridge, Home Assistant</p>
-        <p style="margin-top:0.5rem;">Dedicated to home automation and bridging smart devices within the network.</p>
-    </div>
-</div>
+  <main id="main-content" tabindex="-1">
+    
 
-<div class="wave">
-  <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-    <path d="M0,64 C360,160 1080,0 1440,64 L1440,150 L0,150 Z" fill="var(--brunswick-green)"></path>
-  </svg>
-</div>
-
-<section class="media-section">
-    <h2 style="font-family: 'Dela Gothic One'; text-align: center;">Library Activity</h2>
-    <div id="jellyfin-feed" class="media-list">
-        <p style="text-align: center;">Scanning D14MS library...</p>
-    </div>
+<section class="page-intro shell">
+  <p class="eyebrow reveal">Status / Server overview</p>
+  <h1 class="display-title reveal">Systems, without<br><em>the surveillance.</em></h1>
+  <p class="page-intro__copy reveal">These are the systems behind Rab’s Labs. Live monitoring is not connected here, so this page explains what each machine does without guessing at its current state.</p>
 </section>
 
-<footer>© 2026 Rab's Labs Inc. All rights reserved.</footer>
 
-<script>
-const KUMA_API = "https://restless-frost-d48b.rabslabs.workers.dev/";
-const JELLY_API = "https://rapid-cake-1e6a.rabslabs.workers.dev/";
+<section class="status-grid shell section" aria-label="System status">
+  <article class="status-card reveal">
+    <div class="status-card__top"><span>01 / Media</span><span class="status-chip"><i></i>Not queried</span></div>
+    <h2>D14MS</h2>
+    <p class="status-card__role">Jellyfin / NAS</p>
+    <p>The recovered source describes D14MS as the primary media system and centralized file store.</p>
+    <dl><div><dt>Live status</dt><dd>Not connected</dd></div><div><dt>Visitor tracking</dt><dd>None</dd></div></dl>
+  </article>
+  <article class="status-card reveal">
+    <div class="status-card__top"><span>02 / Automation</span><span class="status-chip"><i></i>Not queried</span></div>
+    <h2>M11AD</h2>
+    <p class="status-card__role">Homebridge / Home Assistant</p>
+    <p>The recovered source describes M11AD as a dedicated smart-device and home-automation system.</p>
+    <dl><div><dt>Live status</dt><dd>Not connected</dd></div><div><dt>Visitor tracking</dt><dd>None</dd></div></dl>
+  </article>
+</section>
 
-/* --- Status Tracking --- */
-async function fetchStatus() {
-    try {
-        const response = await fetch(KUMA_API);
-        const data = await response.json();
-        const heartbeats = data.heartbeatList;
-        const mapping = { '1': 'd14ms', '2': 'm11ad' };
+<section class="activity section section--bone">
+  <div class="shell">
+    <div class="section-heading reveal"><div><p class="eyebrow">Library activity</p><h2>Quiet by<br><em>design.</em></h2></div><p>The former remote Jellyfin feed is intentionally absent.</p></div>
+    <div class="empty-state reveal"><span aria-hidden="true">○</span><h3>No live activity shown</h3><p>The public status page can be connected to verified service data when that feed is ready.</p></div>
+  </div>
+</section>
 
-        Object.keys(mapping).forEach(id => {
-            const slug = mapping[id];
-            if (heartbeats[id] && heartbeats[id].length > 0) {
-                const latest = heartbeats[id][heartbeats[id].length - 1];
-                const dot = document.getElementById(`dot-${slug}`);
-                const text = document.getElementById(`text-${slug}`);
-                const card = document.getElementById(`card-${slug}`);
-                const isOnline = (latest.status === 1);
-                dot.className = `status-indicator ${isOnline ? 'status-online' : 'status-offline'}`;
-                text.innerText = isOnline ? "Online" : "Offline";
-                card.style.borderLeftColor = isOnline ? "var(--good-green)" : "var(--alert-red)";
-            }
-        });
-    } catch (err) { console.error(err); }
-}
+  </main>
 
-/* --- Jellyfin Media Feed --- */
-async function fetchJellyfin() {
-    try {
-        const res = await fetch(JELLY_API);
-        const items = await res.json();
-        const feed = document.getElementById('jellyfin-feed');
-        feed.innerHTML = '';
+  <footer class="site-footer">
+  <div class="footer-marquee" aria-hidden="true">
+    <div>Curiosity into form — Perception is not reality — Curiosity into form — Perception is not reality — Curiosity into form — Perception is not reality —</div>
+  </div>
+  <div class="footer-grid shell">
+    <div>
+      <span class="eyebrow">Open a new thread</span>
+      <h2>Let the next<br>thing <em>begin.</em></h2>
+    </div>
+    <div class="footer-actions">
+      <button type="button" class="button button--accent magnetic" data-contact-open>Contact details</button>
+      <a href="/links/">Network directory <span aria-hidden="true">↗</span></a>
+      <a href="/status/">Server overview <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="footer-meta shell">
+    <p>© 2026 Rab's Labs LLC. All rights reserved.</p>
+    <p>Hosted on GitHub Pages / No tracking / No telemetry</p>
+    <a href="#main-content">Back to top ↑</a>
+  </div>
+</footer>
 
-        items.forEach(item => {
-            const poster = `https://tv.rabslabs.xyz/Items/${item.Id}/Images/Primary?fillHeight=240&fillWidth=160&quality=90`;
-            const year = item.ProductionYear ? ` • ${item.ProductionYear}` : "";
-            feed.innerHTML += `
-                <div class="media-item">
-                    <img src="${poster}" class="media-poster" alt="${item.Name}">
-                    <div class="media-info">
-                        <h4>${item.Name}</h4>
-                        <p>New Release${year}</p>
-                    </div>
-                </div>`;
-        });
-    } catch (err) { document.getElementById('jellyfin-feed').innerText = "Unable to reach media server."; }
-}
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+    <div class="dialog__topline">
+      <span class="eyebrow">Contact details</span>
+      <button class="icon-button" type="button" data-dialog-close aria-label="Close contact details">×</button>
+    </div>
+    <h2 id="contact-title">Make contact.</h2>
+    <p>I haven’t added a public email address yet. For now, GitHub is the best place to find me and follow the work.</p>
+    <a class="button button--dark" href="https://github.com/rabbibo" target="_blank" rel="noopener noreferrer">Visit verified GitHub <span aria-hidden="true">↗</span></a>
+    <p class="fine-print">Add optional contact methods in <code>content/site.json</code> when ready.</p>
+  </dialog>
 
-// Startup fire
-fetchStatus();
-fetchJellyfin();
-setInterval(fetchStatus, 30000); // 30s heartbeat
-</script>
-
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
+  <div class="cursor" aria-hidden="true" data-cursor><span></span></div>
 </body>
 </html>
